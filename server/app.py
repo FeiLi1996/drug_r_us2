@@ -257,62 +257,70 @@ def update_product_post_checkout():
 
 
 
-@app.route('/handle_user_profile',methods=["GET","POST"])
+@app.route('/edit_user_profile',methods=["POST"])
+def edit_user_profile():
+
+    userProfile = request.json['userProfile']
+    user_profile_exists = UserProfile.query.filter_by(user_email=userProfile["user_email"]).first() 
+    print(user_profile_exists,'exist?')
+    delimiter =','
+    stringDrugProfile = delimiter.join(userProfile["drug_profile"])
+    if user_profile_exists:
+            
+            user_profile_exists.profile_name=userProfile["profile_name"]
+            user_profile_exists.address=userProfile["address"]
+            user_profile_exists.payment_card= userProfile["payment_card"]
+            user_profile_exists.drug_profile=stringDrugProfile
+            #print(userProfile["payment_card"])
+            db.session.commit()
+            return{
+                "msg":"new user updated"
+            }
+
+    else: 
+    
+            new_user =UserProfile(profile_name=userProfile["profile_name"],
+            date_of_birth =userProfile["date_of_birth"],
+            address=userProfile["address"],
+            payment_card= userProfile["payment_card"],
+            drug_profile=stringDrugProfile,
+            user_email=userProfile["user_email"] )
+            db.session.add(new_user)
+            db.session.commit()
+            return{
+                "msg":"new user created",
+                "profile_name":new_user.profile_name,
+                "date_of_birth":new_user.date_of_birth,
+                "address":new_user.address,
+                "payment_card":new_user.payment_card,
+                "drug_profile":new_user.drug_profile,
+                "user_email":new_user.user_email   
+                }
+   
+  
+
+@app.route('/get_user_profile',methods=["POST"])
 def get_user_profile():
-    if request.method == "POST":
-        userProfile = request.json['userProfile']
-        user_profile_exists = UserProfile.query.filter_by(user_email=userProfile["user_email"]).first() 
-        if user_profile_exists:
-             UserProfile.query.filter_by(user_email=userProfile["user_email"]).update(
-                    {"profile_name":userProfile["profile_name"]},
-                    {"address":userProfile["address"]},
-                    {"payment_card":userProfile["payment_card"]},
-                    {"drug_profile":userProfile["drug_profile"]},
-                 
-                 
-                )
-        else: 
-        
-                new_user =UserProfile(profile_name=userProfile["profile_name"],
-                date_of_birth =userProfile["date_of_birth"],
-                address=userProfile["address"],
-                payment_card= userProfile["payment_card"],
-                drug_profile=userProfile["drug_profile"],
-                user_email=userProfile["user_email"] )
+    email = request.json["user_email"]
+    print(email)
+    user_profile = UserProfile.query.filter_by(user_email=email).first()
+    print(user_profile,'profile database')
+    if(user_profile):
+        return jsonify({
 
-                return{
-                    "profile_name":new_user.profile_name,
-                    "date_of_birth":new_user.date_of_birth,
-                    "address":new_user.address,
-                    "payment_card":new_user.payment_card,
-                    "drug_profile":new_user.drug_profile,
-                    "user_email":new_user.user_email   
-                 }
-
-
-    # id = db.Column(db.Integer,primary_key=True)
-    # profile_name = db.Column(db.String(345),nullable=False)
-    # date_of_birth = db.Column(db.String(10),nullable = False)
-    # address = db.Column(db.String,nullable = False)
-    # payment_card = db.Column(db.String,nullable = False)
-    # drug_profile = db.Column(db.String)
-    # user_email=db.Column(db.String(345),db.ForeignKey('users.id'),nullable=False)
-
-   # email = request.json["email"]
-    #user_profile = UserProfile.query.filter_by(user_email=email).first()
-    # image = request.json["image"]
-    # user_id = request.json["email"]
-
-    #new_product =StoreProducts(name=name,price =price,quantity=quantity,image =image,user_id=user_id )
-
-    #if return products then get issues with serilizable
-    return jsonify({
-
-           # "id":products[0].name
-           
-           
+                    "profile_name":user_profile.profile_name,
+                    "date_of_birth":user_profile.date_of_birth,
+                    "address":user_profile.address,
+                    "payment_card":user_profile.payment_card,
+                    "drug_profile":user_profile.drug_profile,
+            
+            
+            }
+        )
+    else:
+        return{
+            "message":"No Profile Found"
         }
-    )
 
 
 
