@@ -223,6 +223,30 @@ def delete_product():
            
         }
     )
+@app.route('/update_product_post_checkout',methods=["POST"])
+def update_product_post_checkout():
+   
+
+    cartProductDrugInfo=request.json["cartProductDrugInfo"]
+    
+        
+    #products = StoreProducts.query.all();
+    # image = request.json["image"]
+    # user_id = request.json["email"]
+
+    #new_product =StoreProducts(name=name,price =price,quantity=quantity,image =image,user_id=user_id )
+
+    #if return products then get issues with serilizable
+    return jsonify({
+
+            "msg": cartProductDrugInfo
+           
+           
+        }
+    )
+
+
+
 
 @app.route('/get_user_profile',methods=["PUT"])
 def get_user_profile():

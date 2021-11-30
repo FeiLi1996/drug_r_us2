@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {useHistory} from 'react-router-dom'
 import Products from "../products";
 import { handleUserDrugList,removeAllFromCart } from "../../actions";
+import axios from "axios";
 
 
 
@@ -15,15 +16,50 @@ export const Checkout =() => {
   const userProfile = useSelector(state => state.userProfile.originalProfile)
   const history = useHistory();
   const dispatch = useDispatch();
+
   function handleConfirmationCheckout(){
     let drugNames =[];
+    let cartProductDrugInfo =[];
     drugNames = checkoutProducts.map(product=>
           product.drug_name
-      )
+
+    )
+    checkoutProducts.map(product=>
+      cartProductDrugInfo.push({
+        
+        'drug_id':product.id,
+        'quantity':product.quantity
+
+
+      })
+      
+
+    )
+    
+    axios
+    .post(
+        "http://127.0.0.1:5000/update_product_post_checkout",
+        { withCredentials: true,
+          'cartProductDrugInfo':cartProductDrugInfo
+        }
+        
+        
+    )
+    .then(response => {
+        console.log(response,'got drug list')
+        
+    })
+    .catch(error => {
+        console.log(error,'did not get druglist')
+        
+    })
+
       
     dispatch(handleUserDrugList('ADD_DRUGs_TO_MED_LIST',drugNames))
     dispatch(removeAllFromCart())
     history.push('/ConfirmationPurchase')
+    
+
   }
 
   return (

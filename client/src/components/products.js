@@ -82,14 +82,14 @@ import axios from 'axios';
         }
 
     }
-    const individualProducts = props.products.map(product =>{
+    const individualProducts = props.products.map((product,idx) =>{
 
      
         
         return(
 
             
-            <div className="product_wrapper">
+            <div key={idx} className="product_wrapper">
                 <a href ='https://placeholder.com'>
                     <img src ='https://via.placeholder.com/80x80'/> 
                 </a>
