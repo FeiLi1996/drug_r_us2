@@ -306,21 +306,21 @@ def get_user_profile():
     user_profile = UserProfile.query.filter_by(user_email=email).first()
     print(user_profile,'profile database')
     if(user_profile):
+
+        drug_list = user_profile.drug_profile.split(',')
         return jsonify({
 
                     "profile_name":user_profile.profile_name,
                     "date_of_birth":user_profile.date_of_birth,
                     "address":user_profile.address,
                     "payment_card":user_profile.payment_card,
-                    "drug_profile":user_profile.drug_profile,
+                    "drug_profile":drug_list
             
             
             }
         )
     else:
-        return{
-            "message":"No Profile Found"
-        }
+        return jsonify({"error":"No User"}), 404
 
 
 

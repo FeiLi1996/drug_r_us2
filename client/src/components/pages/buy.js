@@ -53,6 +53,13 @@ export const Buy =() => {
       console.log(error,'did not get product list')
       
   })
+
+
+
+
+
+
+  
   }, []);
 
 

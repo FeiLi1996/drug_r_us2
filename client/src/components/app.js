@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom'
-
+import axios from 'axios';
 
 
 
@@ -16,10 +17,46 @@ import {LoginRegister} from './pages/login_register';
 import {Sell} from './pages/sell';
 import Userprofile from './pages/user_profile';
 import {NavBar} from './navigation/navbar';
+import { setUserProfile } from '../actions';
+
 
 
  const App  =()=>{
-  
+   const dispatch =useDispatch()
+  useEffect(() => {
+    axios
+    .post(
+        "http://127.0.0.1:5000/get_user_profile",
+        { withCredentials: true,
+          "user_email":"random5" 
+        }
+        
+        
+    )
+    .then(response => {
+      
+      // response.data.map(eachProfile=>{
+      //   console.log(eachProfile)
+      // })
+      Object.entries(response.data).map(profileAttribute => {
+        
+        dispatch(setUserProfile(profileAttribute))
+      })
+      
+      
+
+       
+    })
+    .catch(error => {
+        console.log(error,'did not get user profile')
+        
+    })
+
+
+
+
+   
+  }, []);
 
   
 
