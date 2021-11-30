@@ -1,0 +1,300 @@
+Atorvastatin
+Levothyroxine
+Lisinopril
+Metformin
+Metoprolol
+Amlodipine
+Albuterol
+Omeprazole
+Losartan
+Gabapentin
+Hydrochlorothiazide
+Sertraline
+Simvastatin
+Montelukast
+Acetaminophen; Hydrocodone
+Pantoprazole
+Furosemide
+Fluticasone
+Escitalopram
+Fluoxetine
+Rosuvastatin
+Bupropion
+Amoxicillin
+Dextroamphetamine; Dextroamphetamine Saccharate; Amphetamine; Amphetamine Aspartate
+Trazodone
+Duloxetine
+Prednisone
+Tamsulosin
+Ibuprofen
+Citalopram
+Meloxicam
+Pravastatin
+Carvedilol
+Potassium
+Tramadol
+Clopidogrel
+Insulin Glargine
+Aspirin
+Atenolol
+Venlafaxine
+Alprazolam
+Ethinyl Estradiol; Norethindrone
+Allopurinol
+Hydrochlorothiazide; Lisinopril
+Cyclobenzaprine
+Clonazepam
+Zolpidem
+Azithromycin
+Oxycodone
+Warfarin
+Methylphenidate
+Apixaban
+Ranitidine
+Glipizide
+Ergocalciferol
+Quetiapine
+Budesonide; Formoterol
+Estradiol
+Acetaminophen; Oxycodone
+Ondansetron
+Naproxen
+Glimepiride
+Spironolactone
+Clonidine
+Insulin Lispro
+Loratadine
+Cetirizine
+Topiramate
+Lorazepam
+Ethinyl Estradiol; Norgestimate
+Lamotrigine
+Diltiazem
+Hydrochlorothiazide; Losartan
+Diclofenac
+Hydroxyzine
+Buspirone
+Latanoprost
+Paroxetine
+Lisdexamfetamine
+Fluticasone; Salmeterol
+Pregabalin
+Propranolol
+Cephalexin
+Cholecalciferol
+Insulin Aspart
+Finasteride
+Fenofibrate
+Sitagliptin
+Folic Acid
+Doxycycline
+Rivaroxaban
+Tizanidine
+Amoxicillin; Clavulanate
+Amitriptyline
+Lovastatin
+Alendronate
+Levetiracetam
+Sumatriptan
+Hydralazine
+Sulfamethoxazole; Trimethoprim
+Aripiprazole
+Celecoxib
+Ferrous Sulfate
+Famotidine
+Benzonatate
+Mirtazapine
+Triamcinolone
+Ezetimibe
+Fluticasone; Vilanterol
+Valacyclovir
+Methotrexate
+Oxybutynin
+Ciprofloxacin
+Valproate
+Triamterene; Hydrochlorothiazide
+Thyroid
+Diazepam
+Nifedipine
+Clindamycin
+Donepezil
+Insulin Detemir
+Hydroxychloroquine
+Isosorbide
+Ethinyl Estradiol; Levonorgestrel
+Baclofen
+Testosterone
+Esomeprazole
+Desogestrel; Ethinyl Estradiol
+Oseltamivir
+Benazepril
+Dexmethylphenidate
+Tiotropium
+Fluconazole
+Dulaglutide
+Chlorthalidone
+Methocarbamol
+Enalapril
+Metronidazole
+Prednisolone
+Guanfacine
+Verapamil
+Liraglutide
+Norethindrone
+Ropinirole
+Acetaminophen
+Empagliflozin
+Hydrocortisone
+Drospirenone; Ethinyl Estradiol
+Risperidone
+Meclizine
+Albuterol; Ipratropium
+Adalimumab
+Nortriptyline
+Valsartan
+Cyanocobalamin
+Etonogestrel; Ethinyl Estradiol
+Acyclovir
+Phentermine
+Cefdinir
+Timolol
+Methylprednisolone
+Oxcarbazepine
+Morphine
+Olmesartan
+Dicyclomine
+Pramipexole
+Azelastine
+Insulin Degludec
+Memantine
+Prazosin
+Ketoconazole
+Rizatriptan
+Acetaminophen; Codeine
+Promethazine
+Metformin; Sitagliptin
+Anastrozole
+Desvenlafaxine
+Ramipril
+Pioglitazone
+Clobetasol
+Irbesartan
+Levofloxacin
+Amiodarone
+Nitroglycerin
+Olanzapine
+Sucralfate
+Docusate
+Progesterone
+Mirabegron
+Mupirocin
+Nebivolol
+Nitrofurantoin
+Levocetirizine
+Methimazole
+Cyclosporine
+Sildenafil
+Carbamazepine
+Labetalol
+Calcium; Cholecalciferol
+Lansoprazole
+Budesonide
+Colchicine
+Terazosin
+Umeclidinium; Vilanterol
+Lithium
+Digoxin
+Dorzolamide; Timolol
+Melatonin
+Insulin Human; Insulin Isophane Human
+Doxazosin
+Ranolazine
+Gemfibrozil
+Amlodipine; Benazepril
+Temazepam
+Flecainide
+Ticagrelor
+Brimonidine
+Dexlansoprazole
+Lidocaine
+Lurasidone
+Benztropine
+Nystatin
+Eszopiclone
+Sacubitril; Valsartan
+Calcium Citrate
+Sodium
+Torsemide
+Butalbital; Acetaminophen; Caffeine
+Mesalamine
+Liothyronine
+Buprenorphine
+Ofloxacin
+Erythromycin
+Doxepin
+Semaglutide
+Hydromorphone
+Penicillin V
+Valsartan; Hydrochlorothiazide
+Beclomethasone
+Brimonidine; Timolol
+Bumetanide
+Letrozole
+Linagliptin
+Tretinoin
+Minocycline
+Ipratropium
+Polyethylene Glycol 3350
+Umeclidinium
+Bisoprolol
+Calcitriol
+Varenicline
+Epinephrine
+Estrogens, Conjugated
+Glyburide
+Guaifenesin
+Magnesium Acetate
+Ethinyl Estradiol; Norgestrel
+Sotalol
+Bimatoprost
+Insulin Isophane
+Medroxyprogesterone
+Tamoxifen
+Mometasone
+Sulfasalazine
+Dorzolamide
+Ketorolac
+Indomethacin
+Atomoxetine
+Olopatadine
+Telmisartan
+Phenytoin
+Buprenorphine; Naloxone
+Raloxifene
+Tobramycin; Dexamethasone
+Naltrexone
+Polymyxin B; Trimethoprim
+Terbinafine
+Fentanyl
+Diphenhydramine
+Bisoprolol; Hydrochlorothiazide
+Pancrelipase Lipase; Pancrelipase Protease; Pancrelipase Amylase
+Zonisamide
+Fexofenadine
+Erenumab
+Linaclotide
+Brompheniramine; Dextromethorphan; Pseudoephedrine
+Omega-3-acid Ethyl Esters
+Dimethyl
+Tadalafil
+Canagliflozin
+Emtricitabine; Tenofovir Disoproxil
+Tolterodine
+Etanercept
+Quinapril
+Senna; Docusate
+Betamethasone
+Solifenacin
+Insulin, Regular, Human
+Chlorhexidine
+Fluocinonide

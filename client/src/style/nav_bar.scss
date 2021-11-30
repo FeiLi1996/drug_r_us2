@@ -1,0 +1,26 @@
+.navbar_wrapper{
+    background-color: black;
+    padding: 10px;
+    color:white;
+    
+    .navlink_wrapper_2{
+        display: grid;
+        grid-template-columns: auto auto auto auto auto;
+        grid-column-gap: 100px;
+        font-size: 20px;
+        a {
+            color: white;
+            text-decoration:none;
+            &:hover {
+              color: #9999ff;
+            }
+          }
+      
+        
+          .nav-link-active {
+            border-bottom: 1px solid #8585e0;
+            color: #8585e0;
+          }
+
+    }
+}
