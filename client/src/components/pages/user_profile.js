@@ -51,7 +51,7 @@ import MessageModal from "../modals/message_modal";
           <div>Address:{userProfile.address}   <br/>/n new line for address </div>  
           <div>Payment Card:{userProfile.payment_card_number}</div> 
           <div>Medication List:
-            {(userProfile.drug_profile.length != 0)?
+            {(userProfile.drug_profile.length != 0 )?
               (<ul>
                 {userProfile.drug_profile.map((drug,idx)=>
                   <li key={idx}> {drug}</li>

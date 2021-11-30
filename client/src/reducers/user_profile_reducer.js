@@ -30,6 +30,14 @@ const INITIAL_STATE ={
 
 
     // }
+    copyProfile:{
+        profile_name:"",
+        date_of_birth:"",
+        address:"",
+        payment_card_number:"",
+        drug_profile:[],
+        user_email:""
+    }
 
 
 }

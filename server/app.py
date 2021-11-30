@@ -6,7 +6,7 @@ from flask_cors import CORS, cross_origin
 from config import ApplicationConfig
 from models import db, User ,StoreProducts,UserProfile
 from drug_list import make_drug_list
-from serialize import serializer
+from serialize import serializerProduct
 
 app = Flask(__name__)
 
@@ -178,7 +178,7 @@ def get_overall_products():
    
     return jsonify(
 
-            [*map(serializer,products)]
+            [*map(serializerProduct,products)]
            
     )
     
@@ -257,8 +257,47 @@ def update_product_post_checkout():
 
 
 
-@app.route('/get_user_profile',methods=["PUT"])
+@app.route('/handle_user_profile',methods=["GET","POST"])
 def get_user_profile():
+    if request.method == "POST":
+        userProfile = request.json['userProfile']
+        user_profile_exists = UserProfile.query.filter_by(user_email=userProfile["user_email"]).first() 
+        if user_profile_exists:
+             UserProfile.query.filter_by(user_email=userProfile["user_email"]).update(
+                    {"profile_name":userProfile["profile_name"]},
+                    {"address":userProfile["address"]},
+                    {"payment_card":userProfile["payment_card"]},
+                    {"drug_profile":userProfile["drug_profile"]},
+                 
+                 
+                )
+        else: 
+        
+                new_user =UserProfile(profile_name=userProfile["profile_name"],
+                date_of_birth =userProfile["date_of_birth"],
+                address=userProfile["address"],
+                payment_card= userProfile["payment_card"],
+                drug_profile=userProfile["drug_profile"],
+                user_email=userProfile["user_email"] )
+
+                return{
+                    "profile_name":new_user.profile_name,
+                    "date_of_birth":new_user.date_of_birth,
+                    "address":new_user.address,
+                    "payment_card":new_user.payment_card,
+                    "drug_profile":new_user.drug_profile,
+                    "user_email":new_user.user_email   
+                 }
+
+
+    # id = db.Column(db.Integer,primary_key=True)
+    # profile_name = db.Column(db.String(345),nullable=False)
+    # date_of_birth = db.Column(db.String(10),nullable = False)
+    # address = db.Column(db.String,nullable = False)
+    # payment_card = db.Column(db.String,nullable = False)
+    # drug_profile = db.Column(db.String)
+    # user_email=db.Column(db.String(345),db.ForeignKey('users.id'),nullable=False)
+
    # email = request.json["email"]
     #user_profile = UserProfile.query.filter_by(user_email=email).first()
     # image = request.json["image"]

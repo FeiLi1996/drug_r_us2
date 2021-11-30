@@ -40,6 +40,32 @@ const  UserProfileModal =(prop)=>{
         }
        else{
 
+
+            axios
+            .post(
+                "http://127.0.0.1:5000/handle_user_profile",
+                { withCredentials: true, 
+                
+                    "profile_name":userProfile.profile_name,
+                    "date_of_birth":userProfile.date_of_birth,
+                    "address":userProfile.address,
+                    "payment_card":userProfile.payment_card_number,
+                    "drug_profile":userProfile.drug_profile,
+                    "user_email":userProfile.user_email
+                    
+                }
+                
+                
+            )
+            .then(response => {
+                console.log(response,'success')
+            })
+            .catch(error => {
+                console.log(error,'fail login')
+                
+            })
+
+
             prop.closeModal(false)
             dispatch(ConfirmNewUserProfile())
         }
