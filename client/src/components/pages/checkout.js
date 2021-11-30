@@ -46,11 +46,11 @@ export const Checkout =() => {
         
     )
     .then(response => {
-        console.log(response,'got drug list')
+        console.log(response,'success')
         
     })
     .catch(error => {
-        console.log(error,'did not get druglist')
+        console.log(error,'fail')
         
     })
 

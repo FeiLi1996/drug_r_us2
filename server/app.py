@@ -228,7 +228,16 @@ def update_product_post_checkout():
    
 
     cartProductDrugInfo=request.json["cartProductDrugInfo"]
-    
+ 
+    for eachProduct in cartProductDrugInfo:
+        
+        product =StoreProducts.query.filter_by(id=eachProduct['drug_id']).first()
+        new_quantity = product.quantity - eachProduct["quantity"]
+        if(new_quantity):
+            StoreProducts.query.filter_by(id=eachProduct['drug_id']).update({'quantity':new_quantity})
+        else:
+            StoreProducts.query.filter_by(id=eachProduct['drug_id']).delete()
+    db.session.commit()
         
     #products = StoreProducts.query.all();
     # image = request.json["image"]
