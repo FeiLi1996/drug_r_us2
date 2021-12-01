@@ -91,7 +91,7 @@ import axios from 'axios';
             
             <div key={idx} className="product_wrapper">
                 <a href ='https://placeholder.com'>
-                    <img src ='https://via.placeholder.com/80x80'/> 
+                    <img src ='https://via.placeholder.com/160x160'/> 
                 </a>
                 {/* <img src={product.image.thumb_image.dataURL} /> */}
                 

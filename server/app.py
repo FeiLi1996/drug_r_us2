@@ -86,6 +86,7 @@ def login_user():
     
     session["user_id"] =user.id
     print(session.get('user_id'),'login cookie')
+    print('helllo coookie above','login cookie')
     
     return jsonify({
 
@@ -97,15 +98,18 @@ def login_user():
     })
 
 
-@app.route('/@me',methods=["GET"])
+@app.route('/me',methods=["GET"])
 def get_current_user():
-    user_id = session.get('user_id')
+    user_id = session.get("user_id")
     print(user_id,'@me route cookie')
     if not user_id:
         return jsonify({"error":"Unathorized"}), 401
-    user =User.query.filter_by(id='user_id').first()
+    user =User.query.filter_by(id=user_id).first()
     return jsonify({
-        'message':'User is authorized'
+        'message':'User is authorized',
+         "id": user.id,
+        "email": user.email
+
     })
 
 
@@ -239,13 +243,7 @@ def update_product_post_checkout():
             StoreProducts.query.filter_by(id=eachProduct['drug_id']).delete()
     db.session.commit()
         
-    #products = StoreProducts.query.all();
-    # image = request.json["image"]
-    # user_id = request.json["email"]
 
-    #new_product =StoreProducts(name=name,price =price,quantity=quantity,image =image,user_id=user_id )
-
-    #if return products then get issues with serilizable
     return jsonify({
 
             "msg": cartProductDrugInfo

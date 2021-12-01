@@ -50,6 +50,31 @@ const onSubmitLogin=(formValues)=>{
         )
         .then(response => {
             console.log(response,'success')
+
+
+
+                       
+        //         axios.get(
+        //             //"http://127.0.0.1:5000/me",
+        //             "http://localhost:5000/me",
+        //             { withCredentials: true}
+                    
+        //         )
+        //         .then(response => {
+                    
+                
+        //             console.log(response,'auth')
+                
+                    
+                    
+                    
+
+                    
+        //         })
+        //         .catch(error => {
+        //             console.log(error,'no auth')
+                    
+        //         })
         })
         .catch(error => {
             console.log(error,'fail login')
@@ -57,6 +82,8 @@ const onSubmitLogin=(formValues)=>{
         })
 
 
+
+      
         
     }
 }

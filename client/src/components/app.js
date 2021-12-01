@@ -40,6 +40,7 @@ import { useSelector } from 'react-redux';
         // response.data.map(eachProfile=>{
         //   console.log(eachProfile)
         // })
+        console.log(response,'retrieved user profile')
         Object.entries(response.data).map(profileAttribute => {
           
           dispatch(setUserProfile(profileAttribute))
@@ -53,6 +54,11 @@ import { useSelector } from 'react-redux';
           console.log(error,'did not get user profile')
           
       })
+
+
+
+
+      
 
 
 
