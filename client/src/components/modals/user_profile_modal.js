@@ -5,6 +5,7 @@ import { useSelector,useDispatch } from 'react-redux';
 import {handleUserDrugList,setToPreviousUserProfile ,ConfirmNewUserProfile} from '../../actions';
 import SearchBar from '../search/search_feature';
 import UserProfileForm from '../forms/user_profile_form';
+import axios from 'axios';
 
 
 
@@ -31,11 +32,11 @@ const  UserProfileModal =(prop)=>{
         // date_of_birth:"",
         // address:"",
         // payment_card:"",
-        if(userProfile.profile_name ==='' || userProfile.date_of_birth ==='' || userProfile.address ==='' ||  userProfile.payment_card_number==='' ){
+        if(userProfile.profile_name ==='' || userProfile.date_of_birth ==='' || userProfile.address ==='' ||  userProfile.payment_card==='' ){
             
             setErrorMessage('please fillout empty fields' )
         }
-        else if(isNaN(userProfile.payment_card_number)){
+        else if(isNaN(userProfile.payment_card)){
             setErrorMessage('please put numbers for payment card' )
         }
        else{
@@ -43,25 +44,27 @@ const  UserProfileModal =(prop)=>{
 
             axios
             .post(
-                "http://127.0.0.1:5000/handle_user_profile",
-                { withCredentials: true, 
-                
-                    "profile_name":userProfile.profile_name,
-                    "date_of_birth":userProfile.date_of_birth,
-                    "address":userProfile.address,
-                    "payment_card":userProfile.payment_card_number,
-                    "drug_profile":userProfile.drug_profile,
-                    "user_email":userProfile.user_email
+                "http://127.0.0.1:5000/edit_user_profile",
+                { withCredentials: true,
+
+                    'userProfile':{
+                        "profile_name":userProfile.profile_name,
+                        "date_of_birth":userProfile.date_of_birth,
+                        "address":userProfile.address,
+                        "payment_card":userProfile.payment_card,
+                        "drug_profile":userProfile.drug_profile,
+                        "user_email":userProfile.user_email
+                    }
                     
                 }
                 
                 
             )
             .then(response => {
-                console.log(response,'success')
+                console.log(response,'success editted profile')
             })
             .catch(error => {
-                console.log(error,'fail login')
+                console.log(error,'fail profile editted')
                 
             })
 
@@ -96,7 +99,7 @@ const  UserProfileModal =(prop)=>{
                 </div>
                 <div className="body">
                     <UserProfileForm />
-                    <div>{errorMesage}</div>     
+                        
                     <div>
                         <div>Medication List:
                             <ul>
@@ -125,8 +128,9 @@ const  UserProfileModal =(prop)=>{
                             ))}
                         </ul>
                     </div>
-                      
+                   
                 </div>
+                <div>{errorMesage}</div> 
                 <div className="footer"> 
                     <button id="cancelBtn" onClick={handleCloseModal}>Cancel</button>
                     <button  onClick={ confirmUseProfileChanges}>Submit</button>

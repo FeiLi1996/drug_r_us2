@@ -24,7 +24,7 @@ import { setUserProfile} from '../../actions';
                     type="text"
                     value={userProfile.date_of_birth || ""}
                     onChange={(e) => dispatch(setUserProfile(['date_of_birth',e.target.value]))}
-                    
+                    maxLength="10"
                 />
                 </div>
                 <div>
@@ -40,8 +40,8 @@ import { setUserProfile} from '../../actions';
                 <label>Payment Card Number: </label>
                 <input
                     type="text"
-                    value={userProfile.payment_card_number || ""}
-                    onChange={(e) => dispatch(setUserProfile(['payment_card_number',e.target.value]))}
+                    value={userProfile.payment_card || ""}
+                    onChange={(e) => dispatch(setUserProfile(['payment_card',e.target.value]))}
                     placeholder="############"
                     maxLength="12"
                     

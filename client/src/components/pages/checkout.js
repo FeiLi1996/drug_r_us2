@@ -72,7 +72,7 @@ export const Checkout =() => {
       <div>
           <div>Profile Name:{userProfile.profile_name}</div>
           <div>Address:{userProfile.address}   <br/>/n new line for address </div>  
-          <div>Payment Card:{userProfile.payment_card_number}</div> 
+          <div>Payment Card:{userProfile.payment_card}</div> 
       </div>
       <Products products={checkoutProducts}  productType={'checkoutProducts'}/>
       <button onClick={()=>history.push('/')}>Back To Shop</button>

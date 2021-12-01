@@ -6,7 +6,7 @@ const INITIAL_STATE ={
         // profile_name:"hi",
         // date_of_birth:"12/16/12",
         // address:"86  merrimac street buffalo ny 14214",
-        // payment_card_number:"4123123412343124",
+        // payment_card:"4123123412343124",
         // //drug_profile:['aspirin','ibuprofen','albuterol','warfarin','propranolol'],
         // drug_profile:['aspirin','ibuprofen','albuterol'],
         
@@ -15,15 +15,15 @@ const INITIAL_STATE ={
         profile_name:"",
         date_of_birth:"",
         address:"",
-        payment_card_number:"",
+        payment_card:"",
         drug_profile:[],
-        user_email:""
+        user_email:"random1"
         },
     // copyProfile:{
     //     profile_name:"hi",
     //     date_of_birth:"12/16/12",
     //     address:"86  merrimac street buffalo ny 14214",
-    //     payment_card_number:"4123123412343124",
+    //     payment_card:"4123123412343124",
     //     //drug_profile:['aspirin','ibuprofen','albuterol','warfarin','propranolol'],
     //     drug_profile:['aspirin','ibuprofen','albuterol'],
     //     user_email:"testing1"
@@ -34,7 +34,7 @@ const INITIAL_STATE ={
         profile_name:"",
         date_of_birth:"",
         address:"",
-        payment_card_number:"",
+        payment_card:"",
         drug_profile:[],
         user_email:""
     }

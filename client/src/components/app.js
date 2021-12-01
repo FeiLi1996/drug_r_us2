@@ -18,45 +18,47 @@ import {Sell} from './pages/sell';
 import Userprofile from './pages/user_profile';
 import {NavBar} from './navigation/navbar';
 import { setUserProfile } from '../actions';
+import { useSelector } from 'react-redux';
 
 
 
  const App  =()=>{
-   const dispatch =useDispatch()
-  useEffect(() => {
-    axios
-    .post(
-        "http://127.0.0.1:5000/get_user_profile",
-        { withCredentials: true,
-          "user_email":"random5" 
-        }
+    const dispatch =useDispatch()
+    const user_email = useSelector(state => state.userProfile.originalProfile.user_email)
+    useEffect(() => {
+      axios
+      .post(
+          "http://127.0.0.1:5000/get_user_profile",
+          { withCredentials: true,
+            "user_email":user_email
+          }
+          
+          
+      )
+      .then(response => {
+        
+        // response.data.map(eachProfile=>{
+        //   console.log(eachProfile)
+        // })
+        Object.entries(response.data).map(profileAttribute => {
+          
+          dispatch(setUserProfile(profileAttribute))
+        })
         
         
-    )
-    .then(response => {
-      
-      // response.data.map(eachProfile=>{
-      //   console.log(eachProfile)
-      // })
-      Object.entries(response.data).map(profileAttribute => {
+
         
-        dispatch(setUserProfile(profileAttribute))
       })
-      
-      
-
-       
-    })
-    .catch(error => {
-        console.log(error,'did not get user profile')
-        
-    })
+      .catch(error => {
+          console.log(error,'did not get user profile')
+          
+      })
 
 
 
 
-   
-  }, []);
+    
+    }, []);
 
   
 

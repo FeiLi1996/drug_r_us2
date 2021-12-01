@@ -16,7 +16,7 @@ import SellingForm from '../forms/selling_form';
 
 
 const  SellProductModal =(prop)=>{
-    const [testing123,setTesting123] = useState()
+    const [errorMessage,setErrorMessage] = useState('')
     const dispatch= useDispatch()
     const user_email = useSelector(state =>state.userProfile.originalProfile.user_email)
    
@@ -44,11 +44,14 @@ const  SellProductModal =(prop)=>{
 
 
     function handleSubmit(event){
-        event.preventDefault();
-        console.log(event.target.drug_name.value)
-        console.log(event.target.drug_price.value)
-        console.log(event.target.drug_quantity.value)
-        console.log(user_email)
+      event.preventDefault();
+      console.log(event.target.drug_name.value,'drug name')
+      if (event.target.drug_name.value ==='' || event.target.drug_price.value ==="" || event.target.drug_quantity.value ===''){
+          setErrorMessage("Please fill out empty fields")
+          
+      }
+      else{
+     
         axios
         .post(
             "http://127.0.0.1:5000/send_products",
@@ -71,19 +74,21 @@ const  SellProductModal =(prop)=>{
             
         })
 
-
-
-
-
-
-        dispatch(addToStore({drug_name:event.target.drug_name.value,
-            price:event.target.drug_price.value,
-            quantity:event.target.drug_quantity.value,
-            email:user_email,
-            //image:testing123
-
-        }))
+        setErrorMessage('')
         prop.closeModal(false)
+        dispatch(addToStore({drug_name:event.target.drug_name.value,
+          price:event.target.drug_price.value,
+          quantity:event.target.drug_quantity.value,
+          email:user_email,
+          //image:testing123
+
+      }))
+      }
+
+
+
+
+        
         
         
 
@@ -116,7 +121,9 @@ const  SellProductModal =(prop)=>{
                    
                   <SellingForm handleSubmit={handleSubmit}/>
                 </div>
-
+                <div>
+                  {errorMessage}
+                </div>
                 
                 <div className="footer"> 
                     <button id="cancelBtn" onClick={()=>{prop.closeModal(false)}}>Cancel</button>

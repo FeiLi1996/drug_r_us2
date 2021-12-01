@@ -15,16 +15,16 @@ import {filter} from 'lodash';
 
 export const Sell =() => {
 
-  const counter_test = useSelector(state => state.counter)
+
   const storeProducts =  useSelector(state => state.storeProduct.product)
   let isLogged = useSelector(state=>state.profileStatusReducer.isLogged)
   let profileFilled = useSelector(state=>state.profileStatusReducer.profileFilled)
-
+  const user_email = useSelector(state => state.userProfile.originalProfile.user_email)
   const [openModal,setToggleModal] = useState(false)
   const dispatch = useDispatch()
   //filter the product here than pass it down
   let filteredProduct;
-  filteredProduct =_.filter(storeProducts, { 'email':'testing1'})
+  filteredProduct =_.filter(storeProducts, { 'email':user_email})
 
   
  
@@ -55,7 +55,7 @@ export const Sell =() => {
               
 
             </div>
-            {counter_test}
+     
           </div>
         )
         :

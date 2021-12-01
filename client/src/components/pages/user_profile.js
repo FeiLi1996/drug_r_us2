@@ -49,7 +49,7 @@ import MessageModal from "../modals/message_modal";
           <div>Profile Name:{userProfile.profile_name}</div>
           <div>Date of Birth:{userProfile.date_of_birth}</div>
           <div>Address:{userProfile.address}   <br/>/n new line for address </div>  
-          <div>Payment Card:{userProfile.payment_card_number}</div> 
+          <div>Payment Card:{userProfile.payment_card}</div> 
           <div>Medication List:
             {(userProfile.drug_profile.length != 0 )?
               (<ul>
