@@ -21,7 +21,7 @@ class StoreProducts(db.Model):
     name = db.Column(db.String(345),nullable=False)
     price = db.Column(db.Integer,nullable = False)
     quantity = db.Column(db.Integer,nullable = False)
-    # image = db.Column(db.BLOB)
+    image = db.Column(db.Text)
     user_email=db.Column(db.String(345),db.ForeignKey('users.id'),nullable=False)
 
 class UserProfile(db.Model):

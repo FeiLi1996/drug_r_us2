@@ -18,7 +18,9 @@ server_session = Session(app)
 db.init_app(app)
 with app.app_context():
     #db.drop_all()
+    #StoreProducts.__table__.drop(db.engine)
     db.create_all()
+   
 
 
 
@@ -136,12 +138,13 @@ def send_products():
     name = request.json["name"]
     price = request.json["price"]
     quantity = request.json["quantity"]
+    image = request.json["image"]
     user_email = request.json["user_email"]
     # image = request.json["image"]
     # user_id = request.json["email"]
 
     #new_product =StoreProducts(name=name,price =price,quantity=quantity,image =image,user_id=user_id )
-    new_product =StoreProducts(name=name,price =price,quantity=quantity,user_email=user_email )
+    new_product =StoreProducts(name=name,price =price,quantity=quantity,image=image,user_email=user_email )
     db.session.add(new_product)
     db.session.commit()
 
@@ -151,6 +154,7 @@ def send_products():
             "name":new_product.name,
             "price":new_product.price,
             "quantity":new_product.quantity,
+            "image":new_product.image,
             "user_email" :new_product.user_email
             # "id":new_product.image,
             # "id":new_product.user_email 
