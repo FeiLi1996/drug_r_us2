@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom'
 import axios from 'axios';
-import { saveServerDrugList,setDatabaseProductToStore ,setEmail} from '../actions';
+import { saveServerDrugList,setDatabaseProductToStore ,switchProfileFilledStatus} from '../actions';
 import Cookies from 'js-cookie'
 import { useSelector } from 'react-redux';
 
@@ -51,7 +51,7 @@ import { setUserProfile,switchLoginStatus } from '../actions';
               Object.entries(response.data).map(profileAttribute => {
                 dispatch(setUserProfile(profileAttribute))
               })
-      
+              dispatch(switchProfileFilledStatus())
             })
             .catch(error => {
                 console.log(error,'did not get user profile')

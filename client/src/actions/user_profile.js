@@ -8,7 +8,7 @@ export const switchLoginStatus = () =>{
 
 export const switchProfileFilledStatus = () =>{
     return{
-        type:'SSWITCH_PROFILEFILLED_STATUS'
+        type:'SWITCH_PROFILEFILLED_STATUS'
     }
 }
 

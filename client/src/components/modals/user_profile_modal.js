@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import { useSelector,useDispatch } from 'react-redux';
 
 
-import {handleUserDrugList,setToPreviousUserProfile ,ConfirmNewUserProfile} from '../../actions';
+import {handleUserDrugList,setToPreviousUserProfile ,ConfirmNewUserProfile, switchProfileFilledStatus} from '../../actions';
 import SearchBar from '../search/search_feature';
 import UserProfileForm from '../forms/user_profile_form';
 import axios from 'axios';
@@ -62,7 +62,7 @@ const  UserProfileModal =(prop)=>{
             )
             .then(response => {
                 console.log(response,'success editted profile')
-               
+                dispatch(switchProfileFilledStatus())
             })
             .catch(error => {
                 console.log(error,'fail profile editted')
