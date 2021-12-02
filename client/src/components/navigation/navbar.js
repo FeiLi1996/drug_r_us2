@@ -1,10 +1,16 @@
 import React from "react";
 import {NavLink} from 'react-router-dom'
 import { useSelector } from "react-redux";
+import Cookies from "js-cookie";
+
 
 export const NavBar =() => {
   const userProfileName = useSelector(state => state.userProfile.originalProfile.profile_name)
-  let isLogged = false;
+  const isLogged = useSelector(state=>state.profileStatusReducer.isLogged)
+  function handleLogout(){
+    Cookies.remove('email')
+    window.location.href=('/')
+  }
   return (
     <div>
 
@@ -16,7 +22,7 @@ export const NavBar =() => {
 
             {isLogged ? (
             <div>
-                 <button>
+                 <button onClick={handleLogout}>
                      Logout    
                  </button> 
              </div>

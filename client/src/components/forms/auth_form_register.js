@@ -53,6 +53,8 @@ const onSubmitRegister=(formValues)=>{
         )
         .then(response => {
             console.log(response,'success')
+            Cookies.set('email', formValues.email)
+            window.location.href=('/')
         })
         .catch(error => {
             console.log(error,'fail register')

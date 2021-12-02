@@ -1,6 +1,6 @@
 const INITIAL_STATE={
-    isLogged:true,
-    profileFilled:true
+    isLogged:false,
+    profileFilled:false
 }
 
 const profileStatusReducer = (state=INITIAL_STATE,action)=>{

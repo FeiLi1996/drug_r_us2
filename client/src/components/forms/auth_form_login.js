@@ -2,6 +2,8 @@ import React,{useState}  from "react";
 import {reduxForm,Field} from 'redux-form'
 import Cookies from 'js-cookie'
 import axios from 'axios'
+import { switchLoginStatus } from "../../actions/user_profile";
+import { useDispatch } from "react-redux";
 
 
 const renderError=({error,touched})=>{
@@ -53,7 +55,8 @@ const onSubmitLogin=(formValues)=>{
         )
         .then(response => {
             console.log(response,'success')
-            Cookies.set('email', 'email')
+            Cookies.set('email', formValues.email)
+            window.location.href=('/')
  
         })
         .catch(error => {

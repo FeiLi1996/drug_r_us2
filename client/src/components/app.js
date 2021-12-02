@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux';
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom'
 import axios from 'axios';
 import { saveServerDrugList,setDatabaseProductToStore ,setEmail} from '../actions';
-
-
+import Cookies from 'js-cookie'
+import { useSelector } from 'react-redux';
 
 
 
@@ -18,36 +18,59 @@ import {LoginRegister} from './pages/login_register';
 import {Sell} from './pages/sell';
 import Userprofile from './pages/user_profile';
 import {NavBar} from './navigation/navbar';
-import { setUserProfile } from '../actions';
-import { useSelector } from 'react-redux';
+import { setUserProfile,switchLoginStatus } from '../actions';
 
 
 
- const App  =({values})=>{
+
+
+ const App  =()=>{
     const dispatch =useDispatch()
-    const user_email = useSelector(state => state.userProfile.originalProfile.user_email)
- 
+    
+     
    
     useEffect(() => {
       
-      axios.post(
-          "http://127.0.0.1:5000/get_user_profile",
-          { withCredentials: true,
-            "user_email":user_email
-          }
+      const user_email= Cookies.get('email')
+      console.log(Cookies.get('email'))
+      if(user_email){
+          dispatch(setUserProfile('user_email',user_email))
+          dispatch(switchLoginStatus())
 
-      )
-      .then(response => {
-        console.log(response,'retrieved user profile')
-        Object.entries(response.data).map(profileAttribute => {
-          dispatch(setUserProfile(profileAttribute))
-        })
+          console.log('in if statement',user_email)
 
-      })
-      .catch(error => {
-          console.log(error,'did not get user profile')
-          
-      })
+          axios.post(
+            "http://127.0.0.1:5000/get_user_profile",
+            { withCredentials: true,
+              "user_email":user_email
+            }
+  
+            )
+            .then(response => {
+              console.log(response,'retrieved user profile')
+              Object.entries(response.data).map(profileAttribute => {
+                dispatch(setUserProfile(profileAttribute))
+              })
+      
+            })
+            .catch(error => {
+                console.log(error,'did not get user profile')
+                
+            })
+       }
+
+
+
+
+
+        else{
+          console.log('not logged in')
+        }
+      
+
+
+
+      
                     
       axios.get(
         "http://127.0.0.1:5000/me",
