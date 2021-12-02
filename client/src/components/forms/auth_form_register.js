@@ -37,11 +37,12 @@ const onSubmitRegister=(formValues)=>{
     else{
 
 
-
+        axios.defaults.withCredentials = true
         axios
         .post(
             "http://127.0.0.1:5000/register",
-            { withCredentials: true, 
+            {
+            
             
             
                 "email":formValues.email,

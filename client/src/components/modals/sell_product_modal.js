@@ -2,13 +2,11 @@ import React, { useState} from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 
-import DropzoneComponent from "react-dropzone-component";
+
 import axios from 'axios';
 
-import "../../../node_modules/react-dropzone-component/styles/filepicker.css";
-import "../../../node_modules/dropzone/dist/min/dropzone.min.css";
 
-import { addToStore,addImgToStore } from '../../actions';
+import { addToStore } from '../../actions';
 import SellingForm from '../forms/selling_form';
 
 
@@ -17,31 +15,11 @@ import SellingForm from '../forms/selling_form';
 
 const  SellProductModal =(prop)=>{
     const [errorMessage,setErrorMessage] = useState('')
-    const [dropImage,setDropImage] = useState('')
+    
     const dispatch= useDispatch()
     const user_email = useSelector(state =>state.userProfile.originalProfile.user_email)
    
  
-    function componentConfig() {
-      return {
-        iconFiletypes: [".jpg", ".png"],
-        showFiletypeIcon: true,
-        postUrl: "https://httpbin.org/post"
-      };
-    }
-  
-    function djsConfig() {
-      return {
-        addRemoveLinks: true,
-        maxFiles: 1
-      };
-    }
-
-    function handleThumbDrop() {
-      return {
-        addedfile: file => setDropImage({ thumb_image: file })
-      };
-    }
 
 
     function handleSubmit(event){
@@ -52,32 +30,28 @@ const  SellProductModal =(prop)=>{
           
       }
       else{
-        console.log(dropImage.thumb_image.name)
-        console.log(dropImage)
-        //https://developer.mozilla.org/en-US/docs/Web/API/FormData/Using_FormData_Objects
-        //https://developer.mozilla.org/en-US/docs/Web/API/Blob
-        // axios
-        // .post(
-        //     "http://127.0.0.1:5000/send_products",
-        //     { withCredentials: true, 
+
+        axios
+        .post(
+            "http://127.0.0.1:5000/send_products",
+            { withCredentials: true, 
             
             
-        //       "name":event.target.drug_name.value,
-        //       "price":event.target.drug_price.value,
-        //       "quantity":event.target.drug_quantity.value,
-        //       "image":dropImage.thumb_image.name,
-        //       "user_email" :user_email
-        //     }
+              "name":event.target.drug_name.value,
+              "price":event.target.drug_price.value,
+              "quantity":event.target.drug_quantity.value,
+              "user_email" :user_email
+            }
             
             
-        // )
-        // .then(response => {
-        //     console.log(response,'success')
-        // })
-        // .catch(error => {
-        //     console.log(error,'fail login')
+        )
+        .then(response => {
+            console.log(response,'success')
+        })
+        .catch(error => {
+            console.log(error,'fail login')
             
-        // })
+        })
 
         setErrorMessage('')
         prop.closeModal(false)
@@ -85,7 +59,7 @@ const  SellProductModal =(prop)=>{
           price:event.target.drug_price.value,
           quantity:event.target.drug_quantity.value,
           email:user_email,
-          //image:testing123
+         
 
       }))
       }
@@ -116,13 +90,7 @@ const  SellProductModal =(prop)=>{
                    
                 </div>
                 <div className="body">
-                  <div className="image-uploaders">
-                    <DropzoneComponent
-                      config={componentConfig()}
-                      djsConfig={djsConfig()}
-                      eventHandlers={handleThumbDrop()}
-                    />
-                  </div>
+                 
                    
                   <SellingForm handleSubmit={handleSubmit}/>
                 </div>

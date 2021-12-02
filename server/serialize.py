@@ -19,7 +19,6 @@ def serializerProduct(object):
 		'drug_name':object.name,
 		'price': object.price,
 		'quantity': object.quantity,
-		'image':object.image,
 		'email':object.user_email
 	}
 

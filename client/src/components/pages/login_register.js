@@ -1,6 +1,7 @@
 import React,{useState} from "react";
 import AuthFormLogin from "../forms/auth_form_login";
 import AuthFormRegister from "../forms/auth_form_register";
+import TestLogin from "../forms/test_login";
 
 export const LoginRegister =() => {
   const [email, setEmail] = useState('')
@@ -13,6 +14,7 @@ export const LoginRegister =() => {
       
       <AuthFormLogin />
       <AuthFormRegister />
+      {/* <TestLogin /> */}
 
 
     </div>

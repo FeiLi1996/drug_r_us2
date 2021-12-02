@@ -17,7 +17,7 @@ const INITIAL_STATE ={
         address:"",
         payment_card:"",
         drug_profile:[],
-        user_email:"random1"
+        user_email:""
         },
     // copyProfile:{
     //     profile_name:"hi",

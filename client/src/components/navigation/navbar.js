@@ -1,15 +1,16 @@
 import React from "react";
 import {NavLink} from 'react-router-dom'
+import { useSelector } from "react-redux";
 
 export const NavBar =() => {
-
+  const userProfileName = useSelector(state => state.userProfile.originalProfile.profile_name)
   let isLogged = false;
   return (
     <div>
 
         <div className="greeting_and_logging">
             <div className='greeting'>
-                Hello (profile_name)
+                Hello:{userProfileName || 'Guest'}
 
             </div>
 

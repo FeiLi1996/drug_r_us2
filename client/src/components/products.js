@@ -93,7 +93,7 @@ import axios from 'axios';
                 <a href ='https://placeholder.com'>
                     <img src ='https://via.placeholder.com/160x160'/> 
                 </a>
-                <img src={product.image} />
+               
                 
                 <div>Drug Name:{product.drug_name}</div>
                 <div>Drug Price:${product.price}</div>

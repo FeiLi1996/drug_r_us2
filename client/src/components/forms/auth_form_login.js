@@ -1,10 +1,12 @@
-import React  from "react";
+import React,{useState}  from "react";
 import {reduxForm,Field} from 'redux-form'
+import Cookies from 'js-cookie'
 import axios from 'axios'
 
 
 const renderError=({error,touched})=>{
     if(error && touched){
+       
         return(
             <div>
 
@@ -25,7 +27,7 @@ const renderInput = ({label,input,meta})=>{
 }
 
 const onSubmitLogin=(formValues)=>{
-   
+
     console.log(formValues)
     console.log(formValues.email)
     
@@ -35,11 +37,12 @@ const onSubmitLogin=(formValues)=>{
     else{
 
 
-
+        axios.defaults.withCredentials = true
         axios
         .post(
             "http://127.0.0.1:5000/login",
-            { withCredentials: true, 
+            { 
+            
             
             
                 "email":formValues.email,
@@ -50,35 +53,12 @@ const onSubmitLogin=(formValues)=>{
         )
         .then(response => {
             console.log(response,'success')
-
-
-
-                       
-        //         axios.get(
-        //             //"http://127.0.0.1:5000/me",
-        //             "http://localhost:5000/me",
-        //             { withCredentials: true}
-                    
-        //         )
-        //         .then(response => {
-                    
-                
-        //             console.log(response,'auth')
-                
-                    
-                    
-                    
-
-                    
-        //         })
-        //         .catch(error => {
-        //             console.log(error,'no auth')
-                    
-        //         })
+            Cookies.set('email', 'email')
+ 
         })
         .catch(error => {
             console.log(error,'fail login')
-            
+            alert("failed login")
         })
 
 
@@ -103,17 +83,18 @@ const validate = formValues =>{
  
     return errors
 }
-const FormInputs =({handleSubmit,valid}) =>{
+const FormInputs =({handleSubmit,valid,reset}) =>{
     
     return(
         <div>
             <form onSubmit={handleSubmit(onSubmitLogin)}>
                 <Field name='email' component={renderInput} label='email'  />
                 <Field name='password' component={renderInput} label='password'  />
-                <button disabled={!valid}> Log in</button>
+               
+                <button disabled={!valid} > Log in</button>
                 
             </form>
-            <div>hello</div>
+           
 
         
         </div>
