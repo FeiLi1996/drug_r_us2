@@ -10,6 +10,12 @@ const profileStatusReducer = (state=INITIAL_STATE,action)=>{
                 ...state,
                 isLogged:!state.isLogged
             }
+       
+        case 'SWITCH_PROFILEFILLED_STATUS':
+            return {
+                ...state,
+                profileFilled:!state.profileFilled
+            }
         default:
             return state;
         

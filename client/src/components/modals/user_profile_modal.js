@@ -62,6 +62,7 @@ const  UserProfileModal =(prop)=>{
             )
             .then(response => {
                 console.log(response,'success editted profile')
+               
             })
             .catch(error => {
                 console.log(error,'fail profile editted')

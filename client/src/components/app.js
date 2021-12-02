@@ -34,7 +34,7 @@ import { setUserProfile,switchLoginStatus } from '../actions';
       const user_email= Cookies.get('email')
       console.log(Cookies.get('email'))
       if(user_email){
-          dispatch(setUserProfile('user_email',user_email))
+          dispatch(setUserProfile(['user_email',user_email]))
           dispatch(switchLoginStatus())
 
           console.log('in if statement',user_email)

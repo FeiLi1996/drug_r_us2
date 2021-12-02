@@ -190,23 +190,7 @@ def get_overall_products():
     
 
 
-@app.route('/get_user_selling_products',methods=["GET"])
-def get_user_selling_products():
-   
-    products = StoreProducts.query.all();
-    # image = request.json["image"]
-    # user_id = request.json["email"]
 
-    #new_product =StoreProducts(name=name,price =price,quantity=quantity,image =image,user_id=user_id )
-
-    #if return products then get issues with serilizable
-    return jsonify({
-
-            "id":products[0].name
-           
-           
-        }
-    )
 @app.route('/delete_product',methods=["POST"])
 def delete_product():
    
@@ -302,7 +286,7 @@ def edit_user_profile():
 @app.route('/get_user_profile',methods=["POST"])
 def get_user_profile():
     email = request.json["user_email"]
-    print(email)
+    print(email,'emaillllllllllllllllllll')
     user_profile = UserProfile.query.filter_by(user_email=email).first()
     print(user_profile,'profile database')
     if(user_profile):

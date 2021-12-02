@@ -11,6 +11,7 @@ import{
 
 
     switchLoginStatus,
+    switchProfileFilledStatus,
     setEmail,
     setUserProfile,
     setToPreviousUserProfile,
@@ -45,6 +46,9 @@ export{
 
 
     switchLoginStatus,
+    switchProfileFilledStatus,
+
+
     setEmail,
     setUserProfile,
     setToPreviousUserProfile,
