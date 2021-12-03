@@ -60,6 +60,18 @@ const userProfile = (state=INITIAL_STATE,action)=>{
                 }
 
             }
+        case 'SET_COPIEDPROFILE_AFTER_RETRIEVAL':
+            // profileAttribute=action.payload[0]
+            //profileAttributeNewValue =action.payload[1]
+            return {
+                
+                ...state,
+                copyProfile:{
+                    ...state.originalProfile,
+                    [action.payload[0]]:action.payload[1]
+                }
+
+            }
         case 'CONFIRM_NEW_USER_PROFILE':
             tempCopy=JSON.parse(JSON.stringify(state.originalProfile))
             return {

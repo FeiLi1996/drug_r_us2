@@ -2,7 +2,7 @@ import {findIndex,some} from 'lodash';
 
 
 const INITIAL_STATE ={
-    testing:'hi',
+ 
     totalPrice:0,
     product:[]
        
@@ -40,10 +40,11 @@ const cartProduct = (state=INITIAL_STATE,action)=>{
                 }
             }
            
-            tempCopy.maxQuantity = action.payload.quantity;
-            tempCopy.quantity =1;
+            tempCopy.maxQuantity = parseInt(action.payload.quantity);
+            tempCopy.quantity =parseInt("1");
             return{
                 ...state,
+                totalPrice:0,
                 product:[...state.product,tempCopy]
             }
                    
@@ -75,6 +76,9 @@ const cartProduct = (state=INITIAL_STATE,action)=>{
             
             tempCopy=JSON.parse(JSON.stringify(state))
             tempId=_.findIndex(tempCopy.product, {id:action.payload})
+            console.log(tempCopy)
+            console.log(tempId)
+            console.log(tempCopy.product[tempId].quantity)
             if (tempCopy.product[tempId].quantity !=tempCopy.product[tempId].maxQuantity){
                 tempCopy.product[tempId].quantity +=1 
             }

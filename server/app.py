@@ -286,12 +286,14 @@ def edit_user_profile():
 @app.route('/get_user_profile',methods=["POST"])
 def get_user_profile():
     email = request.json["user_email"]
-    print(email,'emaillllllllllllllllllll')
+    
     user_profile = UserProfile.query.filter_by(user_email=email).first()
-    print(user_profile,'profile database')
+    
     if(user_profile):
 
         drug_list = user_profile.drug_profile.split(',')
+        if '' in drug_list[0]:
+            drug_list.pop(0)
         return jsonify({
 
                     "profile_name":user_profile.profile_name,

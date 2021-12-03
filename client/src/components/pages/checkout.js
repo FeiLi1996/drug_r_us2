@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {useHistory} from 'react-router-dom'
 import Products from "../products";
-import { handleUserDrugList,removeAllFromCart } from "../../actions";
+import { handleUserDrugList,removeAllFromCart,setDatabaseProductToStore } from "../../actions";
 import axios from "axios";
 
 
@@ -47,6 +47,20 @@ export const Checkout =() => {
     )
     .then(response => {
         console.log(response,'success')
+        axios.get(
+          "http://127.0.0.1:5000//get_overall_products",
+          { withCredentials: true}
+          
+          
+        )
+        .then(response => {
+            console.log(response.data,'got product list')
+            dispatch(setDatabaseProductToStore(response.data))
+        })
+        .catch(error => {
+            console.log(error,'did not get product list')
+            
+        })
         
     })
     .catch(error => {

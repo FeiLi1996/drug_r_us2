@@ -1,5 +1,5 @@
 import React,{useState}  from "react";
-import {reduxForm,Field} from 'redux-form'
+import {reduxForm,Field,SubmissionError } from 'redux-form'
 import Cookies from 'js-cookie'
 import axios from 'axios'
 import { switchLoginStatus } from "../../actions/user_profile";
@@ -61,9 +61,17 @@ const onSubmitLogin=(formValues)=>{
         })
         .catch(error => {
             console.log(error,'fail login')
-            alert("failed login")
-        })
+            
+           
+                
 
+
+            
+        })
+        throw new SubmissionError({
+            password: 'Wrong password or email',
+            
+          })
 
 
       
@@ -86,7 +94,7 @@ const validate = formValues =>{
  
     return errors
 }
-const FormInputs =({handleSubmit,valid,reset}) =>{
+const FormInputs =({handleSubmit,valid,reset,pristine,submitting }) =>{
     
     return(
         <div>
@@ -95,7 +103,7 @@ const FormInputs =({handleSubmit,valid,reset}) =>{
                 <Field name='password' component={renderInput} label='password'  />
                
                 <button disabled={!valid} > Log in</button>
-                
+                <button type="button" disabled={pristine || submitting} onClick={reset}>Clear Values</button>
             </form>
            
 

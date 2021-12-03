@@ -14,6 +14,7 @@ import{
     switchProfileFilledStatus,
     setEmail,
     setUserProfile,
+    setUserCopiedProfileAfterRetrieval,
     setToPreviousUserProfile,
     ConfirmNewUserProfile,
     handleUserDrugList
@@ -51,6 +52,7 @@ export{
 
     setEmail,
     setUserProfile,
+    setUserCopiedProfileAfterRetrieval,
     setToPreviousUserProfile,
     ConfirmNewUserProfile,
     handleUserDrugList,

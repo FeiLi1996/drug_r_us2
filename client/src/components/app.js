@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom'
 import axios from 'axios';
-import { saveServerDrugList,setDatabaseProductToStore ,switchProfileFilledStatus} from '../actions';
+
 import Cookies from 'js-cookie'
-import { useSelector } from 'react-redux';
+
 
 
 
@@ -18,7 +18,15 @@ import {LoginRegister} from './pages/login_register';
 import {Sell} from './pages/sell';
 import Userprofile from './pages/user_profile';
 import {NavBar} from './navigation/navbar';
-import { setUserProfile,switchLoginStatus } from '../actions';
+import { 
+  saveServerDrugList,
+  setDatabaseProductToStore ,
+  switchProfileFilledStatus,
+  setUserCopiedProfileAfterRetrieval,
+  switchLoginStatus,
+  setUserProfile
+
+} from '../actions';
 
 
 
@@ -35,6 +43,7 @@ import { setUserProfile,switchLoginStatus } from '../actions';
       console.log(Cookies.get('email'))
       if(user_email){
           dispatch(setUserProfile(['user_email',user_email]))
+          dispatch(setUserCopiedProfileAfterRetrieval(['user_email',user_email]))
           dispatch(switchLoginStatus())
 
           console.log('in if statement',user_email)
@@ -49,7 +58,10 @@ import { setUserProfile,switchLoginStatus } from '../actions';
             .then(response => {
               console.log(response,'retrieved user profile')
               Object.entries(response.data).map(profileAttribute => {
+                
                 dispatch(setUserProfile(profileAttribute))
+                dispatch(setUserCopiedProfileAfterRetrieval(profileAttribute))
+                
               })
               dispatch(switchProfileFilledStatus())
             })
@@ -112,15 +124,15 @@ import { setUserProfile,switchLoginStatus } from '../actions';
         { withCredentials: true}
         
         
-    )
-    .then(response => {
-        console.log(response.data,'got product list')
-        dispatch(setDatabaseProductToStore(response.data))
-    })
-    .catch(error => {
-        console.log(error,'did not get product list')
-        
-    })
+      )
+      .then(response => {
+          console.log(response.data,'got product list')
+          dispatch(setDatabaseProductToStore(response.data))
+      })
+      .catch(error => {
+          console.log(error,'did not get product list')
+          
+      })
 
   
 

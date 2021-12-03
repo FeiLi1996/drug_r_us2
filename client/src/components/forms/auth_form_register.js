@@ -1,5 +1,5 @@
 import React  from "react";
-import {reduxForm,Field} from 'redux-form'
+import {reduxForm,Field,SubmissionError} from 'redux-form'
 import axios from 'axios'
 import Cookies from "js-cookie";
 
@@ -61,7 +61,12 @@ const onSubmitRegister=(formValues)=>{
             console.log(error,'fail register')
             
         })
-
+        throw new SubmissionError({
+            password: 'Email exists already',
+            
+          })
+       
+          
 
         
     }
@@ -79,7 +84,7 @@ const validate = formValues =>{
  
     return errors
 }
-const FormInputs =({handleSubmit,valid}) =>{
+const FormInputs =({handleSubmit,valid,pristine, reset,submitting }) =>{
     
     return(
         <div>
@@ -87,6 +92,7 @@ const FormInputs =({handleSubmit,valid}) =>{
                 <Field name='email' component={renderInput} label='email'  />
                 <Field name='password' component={renderInput} label='password'  />
                 <button disabled={!valid}> Register</button>
+                <button type="button" disabled={pristine || submitting} onClick={reset}>Clear Values</button>
                 
             </form>
             <div>hello</div>

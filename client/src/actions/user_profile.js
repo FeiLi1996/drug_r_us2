@@ -36,6 +36,14 @@ export const setUserProfile = (userProfile) =>{
     }
 }
 
+export const setUserCopiedProfileAfterRetrieval = (userProfile) =>{
+    return{
+        type:'SET_COPIEDPROFILE_AFTER_RETRIEVAL',
+        payload:userProfile
+
+    }
+}
+
 //if the user presses cancel when adjusting user_profile_form
 export const setToPreviousUserProfile = () =>{
     return{
