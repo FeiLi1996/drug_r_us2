@@ -41,26 +41,26 @@ import MessageModal from "../modals/message_modal";
       
 
         
-        <button onClick={()=>{setToggleModal(true)}}>Edit Profile</button>
+        <button className="modal_button" onClick={()=>{setToggleModal(true)}}>Edit Profile</button>
         {openModal && isLogged && <UserProfileModal closeModal={setToggleModal}/>}
         {openModal && !isLogged && <MessageModal closeModal={setToggleModal}/>}
         
-        <div>
+        <div className="profile">
           <div>Profile Name:{userProfile.profile_name}</div>
           <div>Date of Birth:{userProfile.date_of_birth}</div>
           <div>Address:{userProfile.address} </div>  
           <div>Payment Card:{userProfile.payment_card}</div> 
-          <div>Medication List:
+          <div className="med_header">Medication List:
             {(userProfile.drug_profile.length != 0 )?
-              (<ul>
+              (<ul className="medication_list">
                 {userProfile.drug_profile.map((drug,idx)=>
-                  <li key={idx}> {drug}</li>
+                  <li className="medication" key={idx}> {drug}</li>
 
                 )}
                   
               </ul>)
               :
-              <div>No medication(s) in profile</div>
+              <div className="error_message">No medication(s) in profile</div>
             } 
           </div>
 

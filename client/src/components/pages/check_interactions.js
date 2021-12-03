@@ -96,7 +96,7 @@ export const CheckInteractions =() => {
     <div className="interaction_wrapper">
 
 
-      <div className="Med Header"> Medication List:
+      <div className="med_header"> Medication List:
               {(drug_list.length != 0)?
                 (<ul className="medication_list">
                   {drug_list.map((drug,idx)=>

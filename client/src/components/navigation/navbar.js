@@ -12,7 +12,7 @@ export const NavBar =() => {
     window.location.href=('/')
   }
   return (
-    <div>
+    <div className="navbar_wrapper">
 
         <div className="greeting_and_logging">
             <div className='greeting'>
@@ -22,12 +22,12 @@ export const NavBar =() => {
 
             {isLogged ? (
             <div>
-                 <button onClick={handleLogout}>
+                 <button className="log_button" onClick={handleLogout}>
                      Logout    
                  </button> 
              </div>
              ) : (
-            <div>
+            <div className="log_button">
                 <NavLink  to="/LoginRegister">
                     Login
                 </NavLink>

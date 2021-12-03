@@ -80,7 +80,7 @@ export const Checkout =() => {
 
 
       
-      <div className="checkout_profile">
+      <div className="profile">
           <div>Profile Name:{userProfile.profile_name}</div>
           <div>Address:{userProfile.address}   <br/>/n new line for address </div>  
           <div>Payment Card:{userProfile.payment_card}</div> 

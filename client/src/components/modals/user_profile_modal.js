@@ -28,16 +28,13 @@ const  UserProfileModal =(prop)=>{
     }
     
     const confirmUseProfileChanges =()=>{
-        // profile_name:"",
-        // date_of_birth:"",
-        // address:"",
-        // payment_card:"",
+
         if(userProfile.profile_name ==='' || userProfile.date_of_birth ==='' || userProfile.address ==='' ||  userProfile.payment_card==='' ){
             
-            setErrorMessage('please fillout empty fields' )
+            setErrorMessage('Please fillout empty fields' )
         }
         else if(isNaN(userProfile.payment_card)){
-            setErrorMessage('please put numbers for payment card' )
+            setErrorMessage('Please put numbers for payment card' )
         }
        else{
 
@@ -102,11 +99,11 @@ const  UserProfileModal =(prop)=>{
                     <UserProfileForm />
                         
                     <div>
-                        <div>Medication List:
-                            <ul>
+                        <div className="med_header">Medication List:
+                            <ul  className="medication_list">
                                 {userProfile.drug_profile.map((drug,idx)=>
-                                <li key={idx}> 
-                                    {drug} <span  onClick={()=>dispatch(handleUserDrugList('DELETE_DRUG_FROM_MED_LIST',drug))}> X</span>
+                                <li   className="medication" key={idx}> 
+                                    {drug} <span  className="drug_modal_action"  onClick={()=>dispatch(handleUserDrugList('DELETE_DRUG_FROM_MED_LIST',drug))}> X</span>
                                 </li>
 
                                 )}
@@ -118,12 +115,12 @@ const  UserProfileModal =(prop)=>{
                             searchQuery={searchQuery}
                             setSearchQuery={setSearchQuery}
                         />
-                        <ul>
+                        <ul  className="medication_list">
                             {filteredPosts.map((drug,index) => (
                                 <div key={index}>
 
-                                    <span >{drug}</span>
-                                    <span onClick={()=>dispatch(handleUserDrugList('ADD_DRUG_TO_MED_LIST',drug))}>+</span>
+                                    <span   className="medication">{drug}</span>
+                                    <span className="drug_modal_action" onClick={()=>dispatch(handleUserDrugList('ADD_DRUG_TO_MED_LIST',drug))}>+</span>
                                     
                                 </div>
                             ))}
@@ -134,7 +131,7 @@ const  UserProfileModal =(prop)=>{
                 <div>{errorMesage}</div> 
                 <div className="footer"> 
                     <button id="cancelBtn" onClick={handleCloseModal}>Cancel</button>
-                    <button  onClick={ confirmUseProfileChanges}>Submit</button>
+                    <button className="modal_button" onClick={ confirmUseProfileChanges}>Submit</button>
                 </div>
 
             </div>
