@@ -1,29 +1,26 @@
-import React,{useState} from "react";
+import React from "react";
 import AuthFormLogin from "../forms/auth_form_login";
 import AuthFormRegister from "../forms/auth_form_register";
 import { useSelector } from "react-redux";
 
 export const LoginRegister =() => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+
   const isLogged = useSelector(state=>state.profileStatusReducer.isLogged)
   return (
-    <div>
-      <h1>DevCamp React Starter</h1>
-      <h2>React Redux Router</h2>
-      <div>LoginRegister</div> 
+    <div className="login_register_wrapper_overall">
+
       
       {!isLogged?
 
       (
-        <div>
+        <div className="login_register_wrapper">
           <AuthFormLogin />
           <AuthFormRegister />
         </div>
       )
       :
       (
-          <div> You are logged in already. </div>
+          <div className="error_message"> You are logged in already. </div>
       )}
 
 

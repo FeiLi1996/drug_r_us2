@@ -69,7 +69,7 @@ export const CheckInteractions =() => {
             listOfDrugInteractions =response.data.fullInteractionTypeGroup[0].fullInteractionType
             listOfDrugInteractions.map(interaction=>{  
                //console.log(interaction.interactionPair[0].description)
-               setinteractionDescriptions(interactionDescriptions=>[...interactionDescriptions,interaction.interactionPair[0].description])
+            setinteractionDescriptions(interactionDescriptions=>[...interactionDescriptions,interaction.interactionPair[0].description])
                
             
             })
@@ -93,28 +93,28 @@ export const CheckInteractions =() => {
 
   
   return (
-    <div>
+    <div className="interaction_wrapper">
 
-      <div>CheckInteractions</div>
-      <div>Medication List:
+
+      <div className="Med Header"> Medication List:
               {(drug_list.length != 0)?
-                (<ul>
+                (<ul className="medication_list">
                   {drug_list.map((drug,idx)=>
-                    <li key={idx}> {drug}</li>
+                    <li className="medication" key={idx}> {drug}</li>
 
                   )}
                     
                 </ul>)
                 :
-                <div>No medication(s) in profile</div>
+                <div className="error_message">No medication(s) in profile</div>
               } 
             </div> 
 
-      <button onClick={()=>{showInteractions()}}>Check Interaction</button>
+      <button className= "interacton_button"onClick={()=>{showInteractions()}}>Check Interaction</button>
       {interactionDescriptions.map((description,idx) =>
-        <div key={idx}>{description} </div>
+        <div className=" interaction_description"key={idx}>{description} </div>
         )}
-      <div>{errorMessage}</div>
+      <div className="error_message">{errorMessage}</div>
     </div>
   );
 };

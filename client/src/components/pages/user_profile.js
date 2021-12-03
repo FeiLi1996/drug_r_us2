@@ -5,7 +5,7 @@ import { getFormValues } from 'redux-form'
 import { connect } from 'react-redux'
 
 
-import { setEmail } from "../../actions";
+
 import UserProfileModal from "../modals/user_profile_modal"
 import MessageModal from "../modals/message_modal";
 
@@ -22,7 +22,7 @@ import MessageModal from "../modals/message_modal";
 
 // }
 
- const Userprofile =({values}) => {
+ const Userprofile =() => {
 
   const [openModal,setToggleModal] = useState(false)
  
@@ -30,17 +30,17 @@ import MessageModal from "../modals/message_modal";
   let isLogged = useSelector(state=>state.profileStatusReducer.isLogged)
   const dispatch = useDispatch()
   
-    //dispatch(setEmail(values.email))
+   
   console.log(userProfile.drug_profile)
   
   
   
   return (
-    <div>
+    <div className="user_profile_wrapper">
       
-      <div>
+      
 
-        <div>Userprofile page</div>
+        
         <button onClick={()=>{setToggleModal(true)}}>Edit Profile</button>
         {openModal && isLogged && <UserProfileModal closeModal={setToggleModal}/>}
         {openModal && !isLogged && <MessageModal closeModal={setToggleModal}/>}
@@ -69,7 +69,7 @@ import MessageModal from "../modals/message_modal";
         
 
         
-      </div> 
+     
     
     </div>
   );

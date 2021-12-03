@@ -7,8 +7,7 @@ import axios from "axios";
 
 
 
-//<Products products={props.products} productType={'cartProduct'}/>
-//<Products products={checkOutProducts}  productType={'checkOutProducts'}/>
+
 
 export const Checkout =() => {
 
@@ -77,20 +76,18 @@ export const Checkout =() => {
   }
 
   return (
-    <div>
-      <h1>DevCamp React Starter</h1>
-      <h2>React Redux Router</h2>
-      <div>Checkout</div>
+    <div className="checkout_wrapper">
+
 
       
-      <div>
+      <div className="checkout_profile">
           <div>Profile Name:{userProfile.profile_name}</div>
           <div>Address:{userProfile.address}   <br/>/n new line for address </div>  
           <div>Payment Card:{userProfile.payment_card}</div> 
       </div>
       <Products products={checkoutProducts}  productType={'checkoutProducts'}/>
-      <button onClick={()=>history.push('/')}>Back To Shop</button>
-      <button onClick={handleConfirmationCheckout}>Confirm</button>
+      <button className="checkout_button" onClick={()=>history.push('/')}>Back To Shop</button>
+      <button  className="checkout_button" onClick={handleConfirmationCheckout}>Confirm</button>
     </div>
     
   );

@@ -1,7 +1,7 @@
 import React,{ useState } from "react";
 import { useSelector,useDispatch } from 'react-redux';
 
-import { setEmail } from "../../actions";
+
 import SellProductModal from "../modals/sell_product_modal";
 import MessageModal from "../modals/message_modal";
 import Products from "../products";
@@ -22,20 +22,20 @@ export const Sell =() => {
   const user_email = useSelector(state => state.userProfile.originalProfile.user_email)
   const [openModal,setToggleModal] = useState(false)
   const dispatch = useDispatch()
-  //filter the product here than pass it down
+
   let filteredProduct;
   filteredProduct =_.filter(storeProducts, { 'email':user_email})
 
   
  
   return (
-    <div>
-      <div>
+    <div className="sell_wrapper">
+     
         
         { !openModal?(
           <div>
           
-            <div>
+            <div className="user_sell_product">
                 <h1>Sell history</h1>
                 
                 <Products products={filteredProduct} productType={"sellerProducts"} remaining='remaining'/>
@@ -43,13 +43,11 @@ export const Sell =() => {
 
             </div>
             
-            <hr/> 
+            <hr className="horizontal_line"/> 
             <div>
-              <div>
-                sell page
-              </div>
-              {/* opens a modal */}
-              <button onClick={()=>setToggleModal(true)}>Sell Stuff</button> 
+             
+              
+              <button className="sell_button" onClick={()=>setToggleModal(true)}>Sell Stuff</button> 
               
               {/* {values ? JSON.stringify(values, 0, 2) : ""} */}
               
@@ -63,7 +61,7 @@ export const Sell =() => {
         }
         
 
-      </div>
+     
     
     </div>
   );
