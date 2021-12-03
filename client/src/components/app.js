@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState,useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom'
 import axios from 'axios';
@@ -7,7 +7,10 @@ import Cookies from 'js-cookie'
 
 
 
-
+import logo0 from '../../static/assets/images/0.jpg'
+import logo1 from '../../static/assets/images/1.jpg'
+import logo2 from '../../static/assets/images/2.jpg'
+import logo3 from '../../static/assets/images/3.jpg'
 import {Buy} from './pages/buy';
 import {ErrorPage} from './pages/error_page';
 import {About} from './pages/about';
@@ -34,13 +37,14 @@ import {
 
  const App  =()=>{
     const dispatch =useDispatch()
-    
+    const [Counter,setCounter] = useState(0);
+
      
    
     useEffect(() => {
       
       const user_email= Cookies.get('email')
-     
+      
       if(user_email){
           dispatch(setUserProfile(['user_email',user_email]))
           dispatch(setUserCopiedProfileAfterRetrieval(['user_email',user_email]))
@@ -134,14 +138,31 @@ import {
           
       })
 
-  
+      
+ 
 
 
 
     
     }, []);
 
+
+    useEffect(() => {
+      const timeout = setTimeout(() => {
+        setCounter((Counter + 1)%4);
+      }, 5000);
   
+      return () => {
+        clearTimeout(timeout);
+      };
+
+    }, [Counter]);
+    
+
+    function imageSwitch(){
+      
+      return `../../static/assets/images/${Counter}.jpg`
+    }
 
 
     
@@ -149,13 +170,13 @@ import {
       <div className='app'>
 
         
-        
-        <div className="the_app_name">Drugs R Us</div>
-        
-        <div>
-          <img src ='https://via.placeholder.com/80x80'/> 
+        <div className="app_name_and_logo">
+          <div className="the_app_name">Drugs R Us2</div>
+          
+          <div className="logo">
+            <img src = {imageSwitch()}/> 
+          </div>
         </div>
-
         <Router>
           
           <NavBar/>

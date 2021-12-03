@@ -12,24 +12,24 @@ export const NavBar =() => {
     window.location.href=('/')
   }
   return (
-    <div className="navbar_wrapper">
+    <div className="navbar_wrapper_overall">
 
         <div className="greeting_and_logging">
-            <div className='greeting'>
-                Hello:{userProfileName || 'Guest'}
+            <div className='greeting_wrapper'>
+                Hello: <span className="profile_name">{userProfileName || 'Guest'}</span>
 
             </div>
 
             {isLogged ? (
-            <div>
+            <div className="log_button_wrapper">
                  <button className="log_button" onClick={handleLogout}>
                      Logout    
                  </button> 
              </div>
              ) : (
-            <div className="log_button">
+            <div className="log_button_wrapper">
                 <NavLink  to="/LoginRegister">
-                    Login
+                    <button className="log_button">Login </button>
                 </NavLink>
             </div>
              )}

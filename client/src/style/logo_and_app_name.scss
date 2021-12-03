@@ -1,0 +1,18 @@
+
+.app_name_and_logo{
+    font-family: Stencil Std, fantasy;
+    font-size: 60px;
+    font-weight: 900px;
+    background-color: #7FDBFF;
+    .the_app_name, .logo{
+        text-align: center;
+    }
+    .logo{
+        img{
+
+            width: 400px; 
+            height: 300px;
+        }
+
+    }
+}

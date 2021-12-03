@@ -35,9 +35,10 @@
   height: 100vh;
   display: flex;
   align-items: center;
- 
+
   flex-direction: column;
-  font-family: "Nunito", sans-serif;
+  font-family: Tahoma, sans-serif;
+ 
 }
 
 .App .openModalBtn {
@@ -52,6 +53,7 @@
 body {
   padding: 0;
   margin: 0;
+ 
 
   input[type=number]::-webkit-inner-spin-button, 
   input[type=number]::-webkit-outer-spin-button { 
@@ -59,7 +61,36 @@ body {
     margin: 0; 
   }
 }
-img{
-  height: 80px;
-  width: 80px;
+
+
+
+button {
+    
+
+    font-size: 25px;
+    cursor: pointer;
+  }
+
+
+
+
+
+
+.greeting_and_logging{
+  background-color:#DDDDDD;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-size: 30px;
+  font-weight: bold;
+  .log_button_wrapper{
+    justify-self: end;
+  }
+  .greeting_wrapper{
+    .profile_name{
+      font-style: italic;
+      color:tomato;
+    }
+  }
+
+    
 }

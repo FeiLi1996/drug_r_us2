@@ -25,9 +25,9 @@ export const Buy =() => {
 
 
   return (
-    <div>
+    <div className="buy_page_overall_wrapper">
  
-      <div>Buy</div> 
+     
       <FilterProducts />
       <ShoppingCart products={cartProducts}/>
       <StoreProducts products={storeProducts}/>
