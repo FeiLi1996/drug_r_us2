@@ -14,7 +14,7 @@ const profileStatusReducer = (state=INITIAL_STATE,action)=>{
         case 'SWITCH_PROFILEFILLED_STATUS':
             return {
                 ...state,
-                profileFilled:!state.profileFilled
+                profileFilled:true
             }
         default:
             return state;

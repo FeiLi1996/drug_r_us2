@@ -8,6 +8,7 @@ import axios from 'axios'
 export const CheckInteractions =() => {
  
   const [interactionDescriptions,setinteractionDescriptions] =useState([])
+  const [errorMessage,setErrorMessage] = useState('')
   let drug_list=useSelector(state=>state.userProfile.originalProfile.drug_profile)
   let RXCUI_list_promises; 
   let RXCUI_list;
@@ -77,11 +78,15 @@ export const CheckInteractions =() => {
           })
         .catch(error => {
             console.log(error)
+            setErrorMessage('No interactions were found at this time')
             
         })
+        
       )
+      
     )
     console.log(RXCUI_list,'hello')
+    
   
   }
   
@@ -109,6 +114,7 @@ export const CheckInteractions =() => {
       {interactionDescriptions.map((description,idx) =>
         <div key={idx}>{description} </div>
         )}
+      <div>{errorMessage}</div>
     </div>
   );
 };
