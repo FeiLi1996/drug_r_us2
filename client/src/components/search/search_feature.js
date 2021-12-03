@@ -11,13 +11,13 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => (
    
     <form action="/" method="get" autoComplete='off'>
         <label htmlFor="header-search">
-            <span className="visually-hidden">Add drug to profile</span>
+            <span className="search_label">Add drug to profile</span>
         </label>
         <input
             defaultValue={searchQuery}
             onInput={e => setSearchQuery(e.target.value)}
             type="text"
-            id="header-search"
+            id="drug-search"
             placeholder="Search for a drug"
             onKeyPress={(e)=>handleKeyPressEnter(e)}
             name="s"

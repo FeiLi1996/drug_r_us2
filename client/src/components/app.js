@@ -40,13 +40,13 @@ import {
     useEffect(() => {
       
       const user_email= Cookies.get('email')
-      console.log(Cookies.get('email'))
+     
       if(user_email){
           dispatch(setUserProfile(['user_email',user_email]))
           dispatch(setUserCopiedProfileAfterRetrieval(['user_email',user_email]))
           dispatch(switchLoginStatus())
 
-          console.log('in if statement',user_email)
+    
 
           axios.post(
             "http://127.0.0.1:5000/get_user_profile",
@@ -152,9 +152,9 @@ import {
         
         <div className="the_app_name">Drugs R Us</div>
         
-        <a href ='https://placeholder.com'>
+        <div>
           <img src ='https://via.placeholder.com/80x80'/> 
-        </a>
+        </div>
 
         <Router>
           

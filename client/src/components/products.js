@@ -1,11 +1,11 @@
-import React,{useState}  from 'react'
+import React from 'react'
 import { useSelector,useDispatch } from 'react-redux';
 import { addToCart } from '../actions';
 import { increaseQuantity,decreaseQuantity,removeFromCart,removeFromStore } from '../actions';
 import axios from 'axios';
 
   const Products =(props)=>{
-    const [totalCheckoutPrice,setTotalCheckoutPrice] =useState(0)
+    
     const testingTotalPrice = useSelector(state => state.cartProduct.totalPrice)
     const dispatch = useDispatch()
    
@@ -48,34 +48,29 @@ import axios from 'axios';
    
 
 
-    // drug_name:'aspirin',
-    //         price:5,
-    //         quantity:5,
-    //         email:'',
-    //         id:1
 
     function dynamicButtons (product){
         if (props.productType === 'cartProduct'){
             return(
-                <div>
-                    <button onClick={()=>dispatch(increaseQuantity(product.id))}>+</button>
-                    <button onClick={()=>dispatch(decreaseQuantity(product.id))}>-</button>
-                    <button onClick={()=>dispatch(removeFromCart(product.id))}>Delete</button>
+                <div className="cartProductButtons_wrapper">
+                    <button className="cartProductButton" onClick={()=>dispatch(increaseQuantity(product.id))}>+</button>
+                    <button className="cartProductButton" onClick={()=>dispatch(decreaseQuantity(product.id))}>-</button>
+                    <button className="cartProductButton" onClick={()=>dispatch(removeFromCart(product.id))}>Delete</button>
                 </div>
             )
         }
         else if(props.productType === 'storeProducts'){
             return(
-                <div>
-                    <button onClick={()=>testAddToCart(product)}>Add To Cart</button>
+                <div className="storeProductButtons_wrapper">
+                    <button  className="storeProductButton" onClick={()=>testAddToCart(product)}>Add To Cart</button>
                     
                 </div>
             )
         }
         else if(props.productType === 'sellerProducts'){
             return(
-                <div>
-                    <button onClick={()=>handleRemoveProductFromStore(product.id)}>Delete</button>
+                <div className="sellerProductButtons_wrapper">
+                    <button className="sellerProductButton" onClick={()=>handleRemoveProductFromStore(product.id)}>Delete</button>
                     
                 </div>
             )
@@ -90,9 +85,9 @@ import axios from 'axios';
 
             
             <div key={idx} className="product_wrapper">
-                <a href ='https://placeholder.com'>
+                <div>
                     <img src ='https://via.placeholder.com/160x160'/> 
-                </a>
+                </div>
                
                 
                 <div>Drug Name:{product.drug_name}</div>
@@ -109,15 +104,7 @@ import axios from 'axios';
     
     return(
         <div className="product_overall_wrapper">
-           {/* <div className="product_wrapper">
-                <a href ='https://placeholder.com'>
-                    <img src ='https://via.placeholder.com/80x80'/> 
-                </a>
-                <div>Drug Name:Aspirin</div>
-                <div>Drug Price:50$</div>
-                <div>Quantity Remaining:5</div>
-                <button>Add To Cart</button>
-           </div> */}
+
            {individualProducts}
            {props.productType ==='checkoutProducts'?  <div>Total Price:{testingTotalPrice}</div>:null}
         </div>
