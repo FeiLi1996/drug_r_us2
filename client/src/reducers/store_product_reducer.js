@@ -1,32 +1,7 @@
 import {sortBy,orderBy} from 'lodash';
 
 const INITIAL_STATE ={
-    product:[
-        {
-            drug_name:'aspirin',
-            price:15,
-            quantity:5,
-            email:'',
-            id:1001
-
-        },
-        {
-            drug_name:'albuterol',
-            price:10,
-            quantity:4,
-            email:'testing1',
-            id:1002
-
-        },
-        {
-            drug_name:'ibuprofen',
-            price:13,
-            quantity:4,
-            email:'testing1',
-            id:1003
-
-        }
-    ]
+    product:[]
 
 }
 

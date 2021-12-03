@@ -134,7 +134,7 @@ const cartProduct = (state=INITIAL_STATE,action)=>{
                 
                 ...state,
                 testing:'changed',
-                totalPrice:totalPrice//_.sum(totalPrice)
+                totalPrice:totalPrice
                 
             }
         
