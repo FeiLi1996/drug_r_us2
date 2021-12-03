@@ -1,12 +1,7 @@
 
 import React from 'react'
-import { useSelector,useDispatch } from 'react-redux';
-
 
  const SellingForm=(prop)=>{
-    let userProfile = useSelector(state => state.userProfile.originalProfile)
-    const dispatch = useDispatch()
-
 
     return(
 
@@ -42,5 +37,4 @@ import { useSelector,useDispatch } from 'react-redux';
         </form> 
     )
 }
-
 export default SellingForm

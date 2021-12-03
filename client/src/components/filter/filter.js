@@ -7,12 +7,12 @@ export  const FilterProducts =()=>{
     const dispatch= useDispatch();
     
     return(
-        <div>
+        <div className="overall_filter_wrapper">
             
-            <form className="portfolio-form-wrapper">
+            <form className="filter_option_form_wrapper">
 
 
-                <div className="two-column">
+                <div className="filter_option_container">
                     <select
                    
                     onChange={(e)=>{dispatch(filterStoreProduct(e.target.value))}}

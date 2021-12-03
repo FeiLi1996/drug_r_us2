@@ -32,44 +32,38 @@ const onSubmitRegister=(formValues)=>{
     console.log(formValues)
     console.log(formValues.email)
     
-    if(formValues.email ==='' || formValues.email===undefined){       
-        console.log('fail email')     
-    }
-    else{
-
-
-        axios.defaults.withCredentials = true
-        axios
-        .post(
-            "http://127.0.0.1:5000/register",
-            {
-            
-            
-            
-                "email":formValues.email,
-                "password":formValues.password
-            }
-            
-            
-        )
-        .then(response => {
-            console.log(response,'success')
-            Cookies.set('email', formValues.email)
-            window.location.href=('/')
-        })
-        .catch(error => {
-            console.log(error,'fail register')
-            
-        })
-        throw new SubmissionError({
-            password: 'Email exists already',
-            
-          })
+    axios.defaults.withCredentials = true
+    axios
+    .post(
+        "http://127.0.0.1:5000/register",
+        {
+        
+        
+        
+            "email":formValues.email,
+            "password":formValues.password
+        }
+        
+        
+    )
+    .then(response => {
+        console.log(response,'success')
+        Cookies.set('email', formValues.email)
+        window.location.href=('/')
+    })
+    .catch(error => {
+        console.log(error,'fail register')
+        
+    })
+    throw new SubmissionError({
+        password: 'Email exists already',
+        
+    })
        
           
 
         
-    }
+    
 }
 
 const validate = formValues =>{
@@ -95,7 +89,7 @@ const FormInputs =({handleSubmit,valid,pristine, reset,submitting }) =>{
                 <button type="button" disabled={pristine || submitting} onClick={reset}>Clear Values</button>
                 
             </form>
-            <div>hello</div>
+         
 
         
         </div>

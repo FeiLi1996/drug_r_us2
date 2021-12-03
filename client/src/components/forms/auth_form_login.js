@@ -1,9 +1,8 @@
-import React,{useState}  from "react";
+import React from "react";
 import {reduxForm,Field,SubmissionError } from 'redux-form'
 import Cookies from 'js-cookie'
 import axios from 'axios'
-import { switchLoginStatus } from "../../actions/user_profile";
-import { useDispatch } from "react-redux";
+
 
 
 const renderError=({error,touched})=>{
@@ -32,51 +31,49 @@ const onSubmitLogin=(formValues)=>{
 
     console.log(formValues)
     console.log(formValues.email)
+
+    axios.defaults.withCredentials = true
+    axios
+    .post(
+        "http://127.0.0.1:5000/login",
+        { 
+        
+        
+        
+            "email":formValues.email,
+            "password":formValues.password
+        }
+        
+        
+    )
+    .then(response => {
+        console.log(response,'success')
+        Cookies.set('email', formValues.email)
+        window.location.href=('/')
+
+    })
+    .catch(  error => {
+        console.log(error,'fail login')
+        
+        
     
-    if(formValues.email ==='' || formValues.email===undefined){       
-        console.log('fail email')     
-    }
-    else{
+      
+        
+   
+    })
+    throw new SubmissionError({
+        password: 'Wrong password or email',
+        
+    })
 
-
-        axios.defaults.withCredentials = true
-        axios
-        .post(
-            "http://127.0.0.1:5000/login",
-            { 
-            
-            
-            
-                "email":formValues.email,
-                "password":formValues.password
-            }
-            
-            
-        )
-        .then(response => {
-            console.log(response,'success')
-            Cookies.set('email', formValues.email)
-            window.location.href=('/')
- 
-        })
-        .catch(error => {
-            console.log(error,'fail login')
-            
-           
-                
-
-
-            
-        })
-        throw new SubmissionError({
-            password: 'Wrong password or email',
-            
-          })
+    
+   
+    
 
 
       
         
-    }
+    
 }
 
 
