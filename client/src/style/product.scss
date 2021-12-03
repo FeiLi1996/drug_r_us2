@@ -3,3 +3,17 @@
     border-style:groove;
 
 }
+
+.storeProducts{
+    width: auto;
+    height: auto;
+    background-color: chartreuse;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.eachProduct{
+    width: 160px;
+   
+}

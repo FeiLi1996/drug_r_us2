@@ -84,7 +84,7 @@ import axios from 'axios';
         return(
 
             
-            <div key={idx} className="product_wrapper">
+            <div key={idx} className={` ${props.cssDynamicNameChild} product_wrapper`}>
                 <div>
                     <img src ='https://via.placeholder.com/160x160'/> 
                 </div>
@@ -101,9 +101,9 @@ import axios from 'axios';
         )
 
     })
-    
+    console.log(props.cssDynamicNameParent,'cssnamee')
     return(
-        <div className="product_overall_wrapper">
+        <div className={`${props.cssDynamicNameParent} product_overall_wrapper`}>
 
            {individualProducts}
            {props.productType ==='checkoutProducts'?  <div>Total Price:{testingTotalPrice}</div>:null}

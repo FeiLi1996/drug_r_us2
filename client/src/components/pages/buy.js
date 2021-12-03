@@ -29,9 +29,10 @@ export const Buy =() => {
  
       <div className="filter_cart_wrapper">
         <FilterProducts />
-        <ShoppingCart products={cartProducts}/>
+        
+        <ShoppingCart products={cartProducts} />
       </div>
-      <StoreProducts products={storeProducts}/>
+      <StoreProducts products={storeProducts} />
     </div>
   );
 };

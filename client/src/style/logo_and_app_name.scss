@@ -7,9 +7,12 @@
     .the_app_name, .logo{
         text-align: center;
     }
+    
     .logo{
+       
         img{
-
+            position: relative;
+            top:13px;
             width: 400px; 
             height: 300px;
         }
