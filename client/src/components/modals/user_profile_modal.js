@@ -90,7 +90,7 @@ const  UserProfileModal =(prop)=>{
         <div className="modalBackground">
             <div className="modalContainer">
                 <div className="titleCloseBtn ">
-                    <button onClick={handleCloseModal}>X</button>
+                    <button className="cancelBtn" onClick={handleCloseModal}>X</button>
                 </div>
                 <div className="title">
             
@@ -128,9 +128,9 @@ const  UserProfileModal =(prop)=>{
                     </div>
                    
                 </div>
-                <div>{errorMesage}</div> 
+                <div className="error_message">{errorMesage}</div> 
                 <div className="footer"> 
-                    <button id="cancelBtn" onClick={handleCloseModal}>Cancel</button>
+                    <button className="cancelBtn" onClick={handleCloseModal}>Cancel</button>
                     <button className="modal_button" onClick={ confirmUseProfileChanges}>Submit</button>
                 </div>
 

@@ -23,7 +23,7 @@ const  MessageModal =(prop)=>{
         <div className="modalBackground">
             <div className="modalContainer">
                 <div className="titleCloseBtn ">
-                    <button onClick={()=>{prop.closeModal(false)}}>X</button>
+                    <button className="cancelBtn" onClick={()=>{prop.closeModal(false)}}>X</button>
                 </div>
                 <div className="title">
                    
@@ -36,9 +36,9 @@ const  MessageModal =(prop)=>{
               
                 
                 <div className="footer"> 
-                    <button id="cancelBtn" onClick={()=>{prop.closeModal(false)}}>Cancel</button>
-                    <button  onClick={()=>{handleRedirect("/LoginRegister")}}>Log In</button>
-                    <button  onClick={()=>{handleRedirect("/userprofile")}}>User Profile</button>
+                    <button className="cancelBtn" onClick={()=>{prop.closeModal(false)}}>Cancel</button>
+                    <button  className="modal_button" onClick={()=>{handleRedirect("/LoginRegister")}}>Log In</button>
+                    <button  className="modal_button" onClick={()=>{handleRedirect("/userprofile")}}>User Profile</button>
                     
                 </div>
 

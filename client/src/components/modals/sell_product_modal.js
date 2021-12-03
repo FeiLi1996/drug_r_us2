@@ -1,8 +1,5 @@
 import React, { useState} from 'react';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
-
-
+import { useDispatch,useSelector } from 'react-redux';
 import axios from 'axios';
 
 
@@ -25,8 +22,9 @@ const  SellProductModal =(prop)=>{
     function handleSubmit(event){
       event.preventDefault();
       const drug_name = event.target.drug_name.value 
-      
-      if (drug_name  ==='' || event.target.drug_price.value ==="" || event.target.drug_quantity.value ===''){
+      const drug_price = event.target.drug_price.value
+      const drug_quantity = event.target.drug_quantity.value
+      if (drug_name  ==='' || drug_price ==="" || drug_quantity ===''){
           setErrorMessage("Please fill out empty fields")
           
       }
@@ -42,8 +40,8 @@ const  SellProductModal =(prop)=>{
             
             
               "name":drug_name,
-              "price":event.target.drug_price.value,
-              "quantity":event.target.drug_quantity.value,
+              "price":drug_price,
+              "quantity":drug_quantity,
               "user_email" :user_email
             }
             
@@ -73,9 +71,9 @@ const  SellProductModal =(prop)=>{
 
         setErrorMessage('')
         prop.closeModal(false)
-        dispatch(addToStore({drug_name:event.target.drug_name.value,
-          price:parseInt(event.target.drug_price.value),
-          quantity:parseInt(event.target.drug_quantity.value),
+        dispatch(addToStore({drug_name:drug_name,
+          price:parseInt(drug_price),
+          quantity:parseInt(drug_quantity),
           email:user_email,
          
 
@@ -102,7 +100,7 @@ const  SellProductModal =(prop)=>{
         <div className="modalBackground">
             <div className="modalContainer">
                 <div className="titleCloseBtn ">
-                    <button onClick={()=>{prop.closeModal(false)}}>X</button>
+                    <button  className="cancelBtn" onClick={()=>{prop.closeModal(false)}}>X</button>
                 </div>
                 <div className="title">
                    
@@ -112,12 +110,12 @@ const  SellProductModal =(prop)=>{
                    
                   <SellingForm handleSubmit={handleSubmit}/>
                 </div>
-                <div>
+                <div className="error_message">
                   {errorMessage}
                 </div>
                 
                 <div className="footer"> 
-                    <button id="cancelBtn" onClick={()=>{prop.closeModal(false)}}>Cancel</button>
+                    <button className="cancelBtn" onClick={()=>{prop.closeModal(false)}}>Cancel</button>
                     
                 </div>
 
