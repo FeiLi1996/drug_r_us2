@@ -30,7 +30,7 @@ import Products from '../products'
     }
 
     return(
-        <div>
+        <div className="cart_components_wrapper_overall">
             {!openModal?(
                 <div className='cart_components_wrapper' >
                     

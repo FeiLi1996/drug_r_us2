@@ -27,9 +27,10 @@ export const Buy =() => {
   return (
     <div className="buy_page_overall_wrapper">
  
-     
-      <FilterProducts />
-      <ShoppingCart products={cartProducts}/>
+      <div className="filter_cart_wrapper">
+        <FilterProducts />
+        <ShoppingCart products={cartProducts}/>
+      </div>
       <StoreProducts products={storeProducts}/>
     </div>
   );

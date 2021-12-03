@@ -1,0 +1,39 @@
+.filter_cart_wrapper{
+    display: grid;
+    height: 80px;
+    grid-template-columns: 1fr 1fr;
+    :nth-child(2){
+        justify-self: end;
+    }
+}
+
+
+
+
+
+.cart_components_wrapper_overall{
+    height: 300px;
+    width: 300px;
+    float:right;
+    
+    .cart_components_wrapper{
+        display:flex;
+        flex-direction: column;
+  
+      
+       
+        .cart_products{
+            height: 300px;
+            width:300px;
+            background-color: grey;
+            overflow: scroll;
+            display: flex;
+            flex-direction: column;
+            
+            .each_cart_item{
+
+                background-color:burlywood
+            }
+        }
+    }
+}
