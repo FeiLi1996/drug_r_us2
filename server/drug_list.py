@@ -9,10 +9,10 @@ def make_drug_list():
                 temp_list =[]
                 temp_list = line.split(';')
                 for drug in temp_list:
-                    if drug not in initial_drug_set:
+                    if drug.lower().strip() not in initial_drug_set:
                      initial_drug_set.append(drug.lower().strip())
             else:
-                if line not in initial_drug_set:
+                if line.lower().strip() not in initial_drug_set:
                     initial_drug_set.append(line.lower().strip())
     return ( initial_drug_set)
 

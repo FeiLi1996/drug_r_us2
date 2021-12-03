@@ -28,9 +28,7 @@ with app.app_context():
 def index():
     return 'testing'
 
-#below 2 wwould be done in front end axio calls
-#@app.route('/get_rxcui',methods =["GET"])
-#@app.route('/get_interactions',methods =["GET"])
+
 
 @app.route('/get_drug_list',methods=["GET"])
 def get_drug_list():
@@ -139,10 +137,7 @@ def send_products():
     price = request.json["price"]
     quantity = request.json["quantity"]
     user_email = request.json["user_email"]
-    # image = request.json["image"]
-    # user_id = request.json["email"]
 
-    #new_product =StoreProducts(name=name,price =price,quantity=quantity,image =image,user_id=user_id )
     new_product =StoreProducts(name=name,price =price,quantity=quantity,user_email=user_email )
     db.session.add(new_product)
     db.session.commit()
@@ -154,8 +149,7 @@ def send_products():
             "price":new_product.price,
             "quantity":new_product.quantity,
             "user_email" :new_product.user_email
-            # "id":new_product.image,
-            # "id":new_product.user_email 
+       
         }
     )
 
@@ -199,13 +193,7 @@ def delete_product():
     StoreProducts.query.filter_by(id=id).delete()
     db.session.commit()
         
-    #products = StoreProducts.query.all();
-    # image = request.json["image"]
-    # user_id = request.json["email"]
 
-    #new_product =StoreProducts(name=name,price =price,quantity=quantity,image =image,user_id=user_id )
-
-    #if return products then get issues with serilizable
     return jsonify({
 
             "msg": "deleted"
@@ -255,7 +243,7 @@ def edit_user_profile():
             user_profile_exists.address=userProfile["address"]
             user_profile_exists.payment_card= userProfile["payment_card"]
             user_profile_exists.drug_profile=stringDrugProfile
-            #print(userProfile["payment_card"])
+          
             db.session.commit()
             return{
                 "msg":"new user updated"
