@@ -15,11 +15,21 @@
         img{
             position: relative;
             top:13px;
-            height: auto;
+           
+
+
+            object-fit: contain;
+            max-width: 50%;
+            max-height: 50%;
             width: auto;
-            max-width: 400px; 
-            max-height: 300px;
+            height: auto;
+         
         }
 
     }
 }
+
+
+// object-fit: cover;
+// width: 100%;
+// height: 250px;
