@@ -7,6 +7,14 @@
         justify-self: end;
     }
 }
+@media screen and (max-width: 600px){
+    .filter_cart_wrapper{
+    
+        display: flex;
+        justify-items:start;
+     
+    }
+  }
 
 
 

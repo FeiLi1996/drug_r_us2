@@ -2,11 +2,12 @@
     background-color: black;
     padding: 10px;
     color:white;
+  
     
     .navlink_wrapper_2{
         display: grid;
         grid-template-columns: auto auto auto auto auto;
-        grid-column-gap: 100px;
+        grid-column-gap: auto;
         font-size: 30px;
         a {
             color: white;
@@ -21,8 +22,21 @@
             border-bottom: 1px solid #8585e0;
             color: #8585e0;
           }
+  
+          
 
     }
 }
 
-
+@media screen and (max-width: 600px){
+  .navbar_wrapper{
+    background-color: black;
+    padding: 10px;
+    color:white;
+    .navlink_wrapper_2{
+ 
+      grid-template-columns: 1fr;
+    
+    }  
+  }
+}

@@ -280,7 +280,8 @@ def get_user_profile():
     if(user_profile):
 
         drug_list = user_profile.drug_profile.split(',')
-        if '' in drug_list[0]:
+       
+        if drug_list[0] =='':
             drug_list.pop(0)
         return jsonify({
 
