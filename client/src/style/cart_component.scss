@@ -15,12 +15,12 @@
 .cart_components_wrapper_overall{
     height: 300px;
     width: 300px;
-    float:right;
+    
     
     .cart_components_wrapper{
         display:flex;
         flex-direction: column;
-  
+        //float:right;
       
         .cart_icon{
             font-size: 30px;
@@ -30,7 +30,7 @@
         .cart_products{
             height: 300px;
             width:300px;
-            background-color: grey;
+            background-color: #fefbe9;
             overflow: scroll;
             display: flex;
             flex-direction: column;

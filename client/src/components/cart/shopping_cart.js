@@ -64,7 +64,7 @@ import Products from '../products'
                 
                 )
                 :
-                (<MessageModal closeModal={setToggleModal} isLogged={isLogged} profileFilled={profileFilled} />)
+                (<MessageModal closeModal={setToggleModal} />)
             }
         </div>
     )

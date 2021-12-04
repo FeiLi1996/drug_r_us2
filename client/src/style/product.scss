@@ -2,10 +2,11 @@
 .product_wrapper{
     border-style:groove;
     text-transform: capitalize;
+    font-size: 20px;
 
 }
 
-.storeProducts,.sellProducts{
+.storeProducts,.sellProducts,.checkoutProducts{
     width: auto;
     height: auto;
     //background-color: chartreuse;

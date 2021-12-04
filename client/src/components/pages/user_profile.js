@@ -40,8 +40,9 @@ import MessageModal from "../modals/message_modal";
       
       
 
-        
-        <button className="modal_button" onClick={()=>{setToggleModal(true)}}>Edit Profile</button>
+        <div className="edit_profile_modal_button_wrapper">
+          <button className="edit_profile_modal_button" onClick={()=>{setToggleModal(true)}}>Edit Profile</button>
+        </div>  
         {openModal && isLogged && <UserProfileModal closeModal={setToggleModal}/>}
         {openModal && !isLogged && <MessageModal closeModal={setToggleModal}/>}
         

@@ -103,10 +103,13 @@ import axios from 'axios';
     })
     console.log(props.cssDynamicNameParent,'cssnamee')
     return(
-        <div className={`${props.cssDynamicNameParent} product_overall_wrapper`}>
+        <div>
+            <div className={`${props.cssDynamicNameParent} product_overall_wrapper`}>
 
-           {individualProducts}
-           {props.productType ==='checkoutProducts'?  <div>Total Price:{testingTotalPrice}</div>:null}
+            {individualProducts}
+            
+            </div>
+            {props.productType ==='checkoutProducts'?  <div className="total_price">Total Price:${testingTotalPrice}</div>:null}
         </div>
     )
 }

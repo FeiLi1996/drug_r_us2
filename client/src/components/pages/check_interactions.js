@@ -23,7 +23,7 @@ export const CheckInteractions =() => {
  
  
   function showInteractions(){
-    
+    setinteractionDescriptions([])
     RXCUI_list_promises = drug_list.map( drug =>
    
          axios
@@ -110,9 +110,9 @@ export const CheckInteractions =() => {
               } 
             </div> 
 
-      <button className= "interacton_button"onClick={()=>{showInteractions()}}>Check Interaction</button>
+      <button className= "interacton_button"onClick={()=>{showInteractions()}}>Check Interactions</button>
       {interactionDescriptions.map((description,idx) =>
-        <div className=" interaction_description"key={idx}>{description} </div>
+        <div className=" interaction_description" key={idx}>-{description} </div>
         )}
       <div className="error_message">{errorMessage}</div>
     </div>

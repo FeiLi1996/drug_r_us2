@@ -96,8 +96,8 @@ const FormInputs =({handleSubmit,valid,reset,pristine,submitting }) =>{
     return(
         <div>
             <form onSubmit={handleSubmit(onSubmitLogin)}>
-                <Field name='email' component={renderInput} label='email'  />
-                <Field name='password' component={renderInput} label='password'  />
+                <Field name='email' component={renderInput} label='Email'  />
+                <Field name='password' component={renderInput} label='Password'  />
                
                 <button disabled={!valid} > Log in</button>
                 <button type="button" disabled={pristine || submitting} onClick={reset}>Clear Values</button>

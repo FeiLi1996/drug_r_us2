@@ -15,12 +15,16 @@ const  MessageModal =(prop)=>{
         history.push(path);
     }
 
-
-
+    let pageHeight = Math.max(
+        document.body.scrollHeight, document.documentElement.scrollHeight,
+        document.body.offsetHeight, document.documentElement.offsetHeight,
+        document.body.clientHeight, document.documentElement.clientHeight
+      );
+    
 
 
     return(
-        <div className="modalBackground">
+        <div className={`modalBackground ${prop.cancelFloatCss}`} style={{height:`${pageHeight}px`}}>
             <div className="modalContainer">
                 <div className="titleCloseBtn ">
                     <button className="cancelBtn" onClick={()=>{prop.closeModal(false)}}>X</button>
@@ -28,7 +32,7 @@ const  MessageModal =(prop)=>{
                 <div className="title">
                    
                 </div>
-                <div className="body">
+                <div className="body error_message">
                   Please login first then fill your userprofile.
                     
                 </div>
