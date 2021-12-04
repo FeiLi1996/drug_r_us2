@@ -90,7 +90,7 @@ import axios from 'axios';
                 </div>
                
                 
-                <div>Drug Name:{product.drug_name}</div>
+                <div>Drug Name:<strong>{product.drug_name}</strong></div>
                 <div>Drug Price:${product.price}</div>
               
                 <div>Quantity {props.remaining}:{product.quantity}</div>
