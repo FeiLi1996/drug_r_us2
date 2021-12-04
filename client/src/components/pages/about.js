@@ -5,15 +5,18 @@ export const About =() => {
     <div className="about_wrapper">
       
      
-       <div>
-         Welcome to Drug R Us. This is a for fun bootleg site where you can buy and sell medications.
+       <p>
+         Welcome to Drug R Us2. This is a for fun bootleg site where you can buy and sell medications.
          You can also check if there are any drug to drug interactions in the interaction section
-       </div>
-       <div>
-       The Content is shouldn't to be a substitute for professional medical advice, diagnosis, or treatment. 
+       </p>
+       <p>
+         Currently we can only add generic named  drugs to your user profile.
+       </p>
+       <p>
+       The Content is shouldn't  be a substitute for professional medical advice, diagnosis, or treatment. 
        Always seek the advice of your doctors,pharmacists or nurses with any questions.
-       These questions maybe medications or medical conditions
-       </div>
+       These questions might be  about medications or medical conditions
+       </p>
       
     </div>
   );

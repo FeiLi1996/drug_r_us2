@@ -50,7 +50,31 @@ const INITIAL_STATE ={
             email:'testing1',
             id:1006
 
-        }
+        },
+        {
+            drug_name:'aspirin',
+            price:15,
+            quantity:5,
+            email:'',
+            id:1004
+
+        },
+        {
+            drug_name:'aspirin',
+            price:15,
+            quantity:5,
+            email:'',
+            id:1004
+
+        },
+        {
+            drug_name:'aspirin',
+            price:15,
+            quantity:5,
+            email:'',
+            id:1004
+
+        },
 
     ]
 }
