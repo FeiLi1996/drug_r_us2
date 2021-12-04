@@ -1,10 +1,14 @@
 import React ,{useState}from 'react'
 import { useHistory } from "react-router-dom";
 import { useSelector,useDispatch } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faShoppingBasket } from '@fortawesome/free-solid-svg-icons'
+
+
+
+
 import MessageModal from '../modals/message_modal';
 import { setTotalPrice } from '../../actions';
-
-
 import Products from '../products'
 
 
@@ -47,7 +51,7 @@ import Products from '../products'
             {!openModal?(
                 <div className='cart_components_wrapper' >
                     
-                    <div className='cart_icon'><button onClick={handleCartProductVisibility}>Your Cart </button></div>
+                    <div ><button onClick={handleCartProductVisibility}> <FontAwesomeIcon  className='cart_icon' icon={faShoppingBasket} /> </button></div>
                     <div className={`cart_products ${cssVisibility}`}>
 
                       
