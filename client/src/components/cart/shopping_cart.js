@@ -11,6 +11,8 @@ import Products from '../products'
 
   const ShoppingCart =(props)=>{
     const [openModal,setToggleModal] = useState(false)
+    const [cssVisibility,setCssVisibility] = useState('cartProductInvisible')
+    const [toggleVisibility,setToggleVisibility] = useState(false)
     const isLogged = useSelector(state=>state.profileStatusReducer.isLogged)
     const profileFilled = useSelector(state=>state.profileStatusReducer.profileFilled)
     const dispatch = useDispatch()
@@ -28,14 +30,25 @@ import Products from '../products'
             history.push("/Checkout");
         }
     }
+    function handleCartProductVisibility(){
+        setToggleVisibility(toggleVisibility => !toggleVisibility)
+
+        if(toggleVisibility){
+            setCssVisibility('cartProductInvisible') 
+    
+        }
+        else{
+            setCssVisibility('cartProducVisible')  
+        }
+    }
 
     return(
         <div className="cart_components_wrapper_overall">
             {!openModal?(
                 <div className='cart_components_wrapper' >
                     
-                    <div className='cart_icon'><button>Cart Icon</button></div>
-                    <div className='cart_products'>
+                    <div className='cart_icon'><button onClick={handleCartProductVisibility}>Your Cart </button></div>
+                    <div className={`cart_products ${cssVisibility}`}>
 
                       
                         <Products products={props.products} productType={'cartProduct'}/>

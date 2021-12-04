@@ -2,6 +2,7 @@
     display: grid;
     height: 80px;
     grid-template-columns: 1fr 1fr;
+    padding: 10px 5px 10px 5px; 
     :nth-child(2){
         justify-self: end;
     }
@@ -29,11 +30,16 @@
             overflow: scroll;
             display: flex;
             flex-direction: column;
+            z-index:1 ;
+            
             
             .each_cart_item{
 
                 background-color:burlywood
             }
+        }
+        .cartProductInvisible{
+            visibility: hidden;
         }
     }
 }
