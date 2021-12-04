@@ -31,7 +31,7 @@ import MessageModal from "../modals/message_modal";
   const dispatch = useDispatch()
   
    
-  console.log(userProfile.drug_profile)
+  
   
   
   

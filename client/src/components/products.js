@@ -101,7 +101,7 @@ import axios from 'axios';
         )
 
     })
-    console.log(props.cssDynamicNameParent,'cssnamee')
+   
     return(
         <div>
             <div className={`${props.cssDynamicNameParent} product_overall_wrapper`}>

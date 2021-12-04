@@ -81,12 +81,12 @@ const validate = formValues =>{
 const FormInputs =({handleSubmit,valid,pristine, reset,submitting }) =>{
     
     return(
-        <div>
+        <div className="auth_form">
             <form onSubmit={handleSubmit(onSubmitRegister)}>
-                <Field name='email' component={renderInput} label='Email'  />
-                <Field name='password' component={renderInput} label='Password'  />
-                <button disabled={!valid}> Register</button>
-                <button type="button" disabled={pristine || submitting} onClick={reset}>Clear Values</button>
+                <Field name='email' component={renderInput} label='Email: '  />
+                <Field name='password' component={renderInput} label='Password: '  />
+                <button  className = "button-7" disabled={!valid}> Register</button>
+                <button className = "button-1" type="button" disabled={pristine || submitting} onClick={reset}>Clear Values</button>
                 
             </form>
          

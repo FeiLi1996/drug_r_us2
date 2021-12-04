@@ -1,9 +1,13 @@
 
-.product_wrapper{
-    border-style:groove;
-    text-transform: capitalize;
-    font-size: 20px;
+.product_wrapper_overall{
+   
+    .product_wrapper{
+        border-style:groove;
+        text-transform: capitalize;
+        font-size: 20px;
+        
 
+    }
 }
 
 .storeProducts,.sellProducts,.checkoutProducts{
@@ -12,6 +16,7 @@
     //background-color: chartreuse;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    
     
     gap: 10px;
 }

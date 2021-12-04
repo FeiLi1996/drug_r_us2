@@ -56,7 +56,9 @@ import Products from '../products'
 
                       
                         <Products products={props.products} productType={'cartProduct'}/>
-                        <button type="button" onClick={handleClick}>Checkout</button>
+                        <div id="checkout_button_wrapper">
+                            <button  id ="checkout_button"type="button" onClick={handleClick}>Checkout</button>
+                        </div>
 
                     </div>
                     

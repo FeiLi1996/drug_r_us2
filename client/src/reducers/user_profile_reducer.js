@@ -16,7 +16,7 @@ const INITIAL_STATE ={
         date_of_birth:"",
         address:"",
         payment_card:"",
-        drug_profile:['aspirin','warfarin','propranolol','ibuprofen'],
+        drug_profile:[],
         user_email:""
         },
     // copyProfile:{

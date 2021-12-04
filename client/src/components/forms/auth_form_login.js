@@ -94,13 +94,13 @@ const validate = formValues =>{
 const FormInputs =({handleSubmit,valid,reset,pristine,submitting }) =>{
     
     return(
-        <div>
+        <div className="login_form">
             <form onSubmit={handleSubmit(onSubmitLogin)}>
-                <Field name='email' component={renderInput} label='Email'  />
-                <Field name='password' component={renderInput} label='Password'  />
+                <Field name='email' component={renderInput} label='Email: '  />
+                <Field name='password' component={renderInput} label='Password: '  />
                
-                <button disabled={!valid} > Log in</button>
-                <button type="button" disabled={pristine || submitting} onClick={reset}>Clear Values</button>
+                <button className = "button-7" disabled={!valid} > Log in</button>
+                <button className = "button-1" type="button" disabled={pristine || submitting} onClick={reset}>Clear Values</button>
             </form>
            
 
