@@ -10,7 +10,7 @@ import Cookies from 'js-cookie'
 import logo0 from '../../static/assets/images/0.jpg'
 import logo1 from '../../static/assets/images/1.jpg'
 import logo2 from '../../static/assets/images/2.jpg'
-import logo3 from '../../static/assets/images/3.jpg'
+
 import {Buy} from './pages/buy';
 import {ErrorPage} from './pages/error_page';
 import {About} from './pages/about';
@@ -149,9 +149,9 @@ import {
 
     useEffect(() => {
       const timeout = setTimeout(() => {
-        setCounter((Counter + 1)%4);
+        setCounter((Counter + 1)%3);
       }, 5000);
-  
+     
       return () => {
         clearTimeout(timeout);
       };

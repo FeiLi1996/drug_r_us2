@@ -37,7 +37,7 @@ const  MessageModal =(prop)=>{
                 <div className="footer"> 
                     <button className="cancelBtn" onClick={()=>{prop.closeModal(false)}}>Cancel</button>
                     <button  className="modal_button" onClick={()=>{handleRedirect("/LoginRegister")}}>Log In</button>
-                    <button  className="modal_button" onClick={()=>{handleRedirect("/userprofile")}}>User Profile</button>
+                    <button  className="modal_button" onClick={()=>{handleRedirect("/userprofile")}}>Profile</button>
                     
                 </div>
 
