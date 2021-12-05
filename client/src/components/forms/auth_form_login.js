@@ -33,8 +33,8 @@ const onSubmitLogin=(formValues)=>{
     console.log(formValues.email)
 
     axios.defaults.withCredentials = true
-    axios
-    .post(
+   
+    return axios.post(
         "http://127.0.0.1:5000/login",
         { 
         
@@ -50,29 +50,26 @@ const onSubmitLogin=(formValues)=>{
         console.log(response,'success')
         Cookies.set('email', formValues.email)
         window.location.href=('/')
+        
 
     })
     .catch(  error => {
         console.log(error,'fail login')
+        throw  new SubmissionError({
+            password: 'Wrong password or email',
         
-        
-    
-      
-        
-   
+        })
+
+
     })
-    throw new SubmissionError({
-        password: 'Wrong password or email',
-        
-    })
+ 
+  
 
+
+ 
     
-   
     
-
-
-      
-        
+    return
     
 }
 
