@@ -174,7 +174,7 @@ import {
           <div className="the_app_name">Drugs R Us2</div>
           
           <div className="logo">
-            <img src = {imageSwitch()}/> 
+            <img src = {imageSwitch()}  alt='https://via.placeholder.com/760x520' /> 
           </div>
         </div>
         <Router>

@@ -33,8 +33,8 @@ const onSubmitRegister=(formValues)=>{
     console.log(formValues.email)
     
     axios.defaults.withCredentials = true
-    axios
-    .post(
+  
+    return axios.post(
         "http://127.0.0.1:5000/register",
         {
         
@@ -53,12 +53,13 @@ const onSubmitRegister=(formValues)=>{
     })
     .catch(error => {
         console.log(error,'fail register')
+        throw new SubmissionError({
+            password: 'Email exists already',
+            
+        })
         
     })
-    throw new SubmissionError({
-        password: 'Email exists already',
-        
-    })
+   
        
           
 
