@@ -1,8 +1,11 @@
 import React from 'react'
 import { useSelector,useDispatch } from 'react-redux';
+import axios from 'axios';
+
+import DrugBottle from '../../static/assets/images/drug_bottle.png'
 import { addToCart } from '../actions';
 import { increaseQuantity,decreaseQuantity,removeFromCart,removeFromStore } from '../actions';
-import axios from 'axios';
+
 
   const Products =(props)=>{
     
@@ -85,8 +88,8 @@ import axios from 'axios';
 
             
             <div key={idx} className={` ${props.cssDynamicNameChild} product_wrapper`}>
-                <div>
-                    <img src ='https://via.placeholder.com/160x160'/> 
+                <div className='image_wrapper'>
+                    <img src ={DrugBottle}/> 
                 </div>
                
                 

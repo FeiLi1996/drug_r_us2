@@ -5,7 +5,7 @@
         border-style:groove;
         text-transform: capitalize;
         font-size: 20px;
-        
+     
 
     }
 }
@@ -24,4 +24,11 @@
 .eachProduct{
     width: 160px;
    
+}
+
+.image_wrapper{
+    img{
+        height: 160px;
+        width: 160px;
+    }
 }
