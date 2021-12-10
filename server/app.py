@@ -1,6 +1,6 @@
 
-from flask import Flask, request , jsonify ,session
-from flask_session import Session
+from flask import Flask, request , jsonify
+
 from flask_bcrypt import Bcrypt
 from flask_cors import CORS, cross_origin
 from config import ApplicationConfig
@@ -14,20 +14,13 @@ app.config.from_object(ApplicationConfig)
 
 bcrypt=Bcrypt(app)
 CORS(app, supports_credentials=True)
-server_session = Session(app)
+
 db.init_app(app)
 with app.app_context():
     #db.drop_all()
     #StoreProducts.__table__.drop(db.engine)
     db.create_all()
    
-
-
-
-@app.route('/')
-def index():
-    return 'testing'
-
 
 
 @app.route('/get_drug_list',methods=["GET"])
@@ -39,12 +32,9 @@ def get_drug_list():
             "drug_list":drug_list
             
         }
-
-
     )
 @app.route('/register',methods=["POST"])
 def register_user():
-    
     
     email = request.json["email"]
     password = request.json["password"]
@@ -59,9 +49,6 @@ def register_user():
     new_user =User(email=email,password =hashed_password )
     db.session.add(new_user)
     db.session.commit()
-    session["user_id"] =new_user.id
-
-    
 
     return jsonify({
 
@@ -77,46 +64,22 @@ def login_user():
     
     user = User.query.filter_by(email=email).first() 
     if user is None:
-        return jsonify({"error":"Unathorized"}), 401
+        return jsonify({"error":"not verify"}), 401
 
 
     if not bcrypt.check_password_hash(user.password,password):
-        return jsonify({"error":"Unathorized"}), 401
-    
-    
-    session["user_id"] =user.id
-    print(session.get('user_id'),'login cookie')
-    print('helllo coookie above','login cookie')
-    
+        return jsonify({"error":"not verify"}), 401
+
     return jsonify({
 
 
-
-
-            "message":"you are authorized"
+            "message":"you are authenticated"
             
     })
 
 
-@app.route('/me',methods=["GET"])
-def get_current_user():
-    user_id = session.get("user_id")
-    print(user_id,'@me route cookie')
-    if not user_id:
-        return jsonify({"error":"Unathorized"}), 401
-    user =User.query.filter_by(id=user_id).first()
-    return jsonify({
-        'message':'User is authorized',
-         "id": user.id,
-        "email": user.email
-
-    })
 
 
-@app.route('/logout',methods=['GET'])
-def logout_user():
-    session.pop('user_id')
-    return "200"
 
 
 
@@ -124,15 +87,7 @@ def logout_user():
 @app.route('/send_products',methods=["POST"])
 def send_products():
 
-    # class StoreProducts(db.Model):
-    # __tablename__="store_products"
-    # id = db.Column(db.Integer,primary_key=True)
-    # name = db.Column(db.String(345),nullable=False)
-    # price = db.Column(db.Integer,nullable = False)
-    # quantity = db.Column(db.Integer,nullable = False)
-    # # image = db.Column(db.BLOB)
-    # user_email=db.Column(db.String(345),db.ForeignKey('users.id'),nullable=False)
-   
+
     name = request.json["name"]
     price = request.json["price"]
     quantity = request.json["quantity"]
@@ -173,7 +128,6 @@ def get_overall_products():
     # True
     # aspirin
 
-    #new_product =StoreProducts(name=name,price =price,quantity=quantity,image =image,user_id=user_id )
   
    
     return jsonify(
@@ -181,10 +135,7 @@ def get_overall_products():
             [*map(serializerProduct,products)]
            
     )
-    
-
-
-
+   
 @app.route('/delete_product',methods=["POST"])
 def delete_product():
    
@@ -216,17 +167,13 @@ def update_product_post_checkout():
         else:
             StoreProducts.query.filter_by(id=eachProduct['drug_id']).delete()
     db.session.commit()
-        
 
     return jsonify({
 
             "msg": cartProductDrugInfo
            
-           
         }
     )
-
-
 
 
 @app.route('/edit_user_profile',methods=["POST"])
@@ -234,41 +181,41 @@ def edit_user_profile():
 
     userProfile = request.json['userProfile']
     user_profile_exists = UserProfile.query.filter_by(user_email=userProfile["user_email"]).first() 
-    print(user_profile_exists,'exist?')
+  
     delimiter =','
     stringDrugProfile = delimiter.join(userProfile["drug_profile"])
     if user_profile_exists:
-            
-            user_profile_exists.profile_name=userProfile["profile_name"]
-            user_profile_exists.address=userProfile["address"]
-            user_profile_exists.payment_card= userProfile["payment_card"]
-            user_profile_exists.drug_profile=stringDrugProfile
-          
-            db.session.commit()
-            return{
-                "msg":"new user updated"
-            }
+        
+        user_profile_exists.profile_name=userProfile["profile_name"]
+        user_profile_exists.address=userProfile["address"]
+        user_profile_exists.payment_card= userProfile["payment_card"]
+        user_profile_exists.drug_profile=stringDrugProfile
+        
+        db.session.commit()
+        return{
+            "msg":"new user updated"
+        }
 
     else: 
     
-            new_user =UserProfile(profile_name=userProfile["profile_name"],
-            date_of_birth =userProfile["date_of_birth"],
-            address=userProfile["address"],
-            payment_card= userProfile["payment_card"],
-            drug_profile=stringDrugProfile,
-            user_email=userProfile["user_email"] )
-            db.session.add(new_user)
-            db.session.commit()
-            return{
-                "msg":"new user created",
-                "profile_name":new_user.profile_name,
-                "date_of_birth":new_user.date_of_birth,
-                "address":new_user.address,
-                "payment_card":new_user.payment_card,
-                "drug_profile":new_user.drug_profile,
-                "user_email":new_user.user_email   
-                }
-   
+        new_user =UserProfile(profile_name=userProfile["profile_name"],
+        date_of_birth =userProfile["date_of_birth"],
+        address=userProfile["address"],
+        payment_card= userProfile["payment_card"],
+        drug_profile=stringDrugProfile,
+        user_email=userProfile["user_email"] )
+        db.session.add(new_user)
+        db.session.commit()
+        return{
+            "msg":"new user created",
+            "profile_name":new_user.profile_name,
+            "date_of_birth":new_user.date_of_birth,
+            "address":new_user.address,
+            "payment_card":new_user.payment_card,
+            "drug_profile":new_user.drug_profile,
+            "user_email":new_user.user_email   
+        }
+
   
 
 @app.route('/get_user_profile',methods=["POST"])
