@@ -1,0 +1,9 @@
+-	Maybe the top portion of the site should be smaller (the header) – very big, doesn’t leave space for the products
+o	More space to fill – why do more work lol
+o	Also gives more space for the products in the cart
+-	Would be cool if u can hover over the drug and u can see what it’s used for, typical dosage, etc etc   // goodRx has good drug //https://www.goodrx.com/ibuprofen/what-is
+test examples in the about page...also fix the readme.MD..css the drug interaction description and add the drug x drug for each description[Api has a section for that...pull from api or create my own?]???
+300 top generic drugs only to profile
+
+Add filter search for drug sell so they can only pick the top 301, which allows the api to call for drug info... hover over store product to show drug description?
+add a border to each product???
