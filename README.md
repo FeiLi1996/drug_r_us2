@@ -4,8 +4,8 @@ This is a for fun web app that allows people to buy and sell drugs.
 
 People can also check if there are any drug to drug interactions among the medications they take.
 
-#Deployed Link
-http://feilitest1.herokuapp.com/
+# Deployed Link
+http://feilitest1.herokuapp.com/ <br>
 Or follow steps below for local setup.
 
 
