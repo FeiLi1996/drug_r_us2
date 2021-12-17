@@ -7,3 +7,6 @@ test examples in the about page...also fix the readme.MD..css the drug interacti
 
 Add filter search for drug sell so they can only pick the top 301, which allows the api to call for drug info... hover over store product to show drug description?
 add a border to each product???
+
+-Added border. Added test case and 300 to about.
+-changed sell,store_product,about and product.scss
