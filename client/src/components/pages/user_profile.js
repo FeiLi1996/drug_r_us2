@@ -47,10 +47,10 @@ import MessageModal from "../modals/message_modal";
         {openModal && !isLogged && <MessageModal closeModal={setToggleModal}/>}
         
         <div className="profile">
-          <div>Profile Name:{userProfile.profile_name}</div>
-          <div>Date of Birth:{userProfile.date_of_birth}</div>
-          <div>Address:{userProfile.address} </div>  
-          <div>Payment Card:{userProfile.payment_card}</div> 
+          <div>Profile Name:<span className='profile_inputs'>{userProfile.profile_name}</span></div>
+          <div>Date of Birth:<span className='profile_inputs'>{userProfile.date_of_birth}</span></div>
+          <div>Address:<span className='profile_inputs'>{userProfile.address}</span> </div>  
+          <div>Payment Card:<span className='profile_inputs'>{userProfile.payment_card}</span></div> 
           <div className="med_header">Medication List:
             {(userProfile.drug_profile.length != 0 )?
               (<ul className="medication_list">

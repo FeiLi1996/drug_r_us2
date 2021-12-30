@@ -93,8 +93,8 @@ import { increaseQuantity,decreaseQuantity,removeFromCart,removeFromStore } from
                 </div>
                
                 
-                <div>Drug Name:<strong> {product.drug_name}</strong></div>
-                <div>Drug Price: ${product.price}</div>
+                <div>Drug name:<strong> {product.drug_name}</strong></div>
+                <div>Drug price: ${product.price}</div>
               
                 <div>Stocks {props.remaining}: {product.quantity}</div>
                 

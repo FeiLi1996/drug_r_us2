@@ -36,10 +36,10 @@ export const Sell =() => {
           <div>
           
             <div className="user_sell_product">
-                <h1>Sell history</h1>
+                <h1>Sell Dashboard</h1>
                 
                 <Products products={filteredProduct} productType={"sellerProducts"} remaining='Remaining' cssDynamicNameParent='sellProducts' cssDynamicNameChild='eachProduct'/>
-                {(filteredProduct.length ==0)?(<div>No products are currently being sold by you</div>):null}
+                {(filteredProduct.length ==0)?(<h2>No products are currently being sold by you</h2>):null}
 
             </div>
             

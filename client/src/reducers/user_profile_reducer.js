@@ -3,21 +3,21 @@ import {findIndex} from 'lodash';
 const INITIAL_STATE ={
 
     originalProfile:{
-        profile_name:"hi",
-        date_of_birth:"12/16/12",
-        address:"86  merrimac street buffalo ny 14214",
-        payment_card:"4123123412343124",
-        //drug_profile:['aspirin','ibuprofen','albuterol','warfarin','propranolol'],
-        drug_profile:['aspirin','ibuprofen','albuterol'],
+        // profile_name:"hi",
+        // date_of_birth:"12/16/12",
+        // address:"86  merrimac street buffalo ny 14214",
+        // payment_card:"4123123412343124",
+        // //drug_profile:['aspirin','ibuprofen','albuterol','warfarin','propranolol'],
+        // drug_profile:['aspirin','ibuprofen','albuterol'],
         
-        user_email:"testing1"
+        // user_email:"testing1"
 
-        // profile_name:"",
-        // date_of_birth:"",
-        // address:"",
-        // payment_card:"",
-        // drug_profile:[],
-        // user_email:""
+        profile_name:"",
+        date_of_birth:"",
+        address:"",
+        payment_card:"",
+        drug_profile:[],
+        user_email:""
         },
     // copyProfile:{
     //     profile_name:"hi",

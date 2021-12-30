@@ -6,31 +6,23 @@ import axios from 'axios'
 
 
 export const CheckInteractions =() => {
- 
   const [interactionDescriptions,setinteractionDescriptions] =useState([])
-  const [test1,setTest1] =useState([])
   const [errorMessage,setErrorMessage] = useState('')
   let drug_list=useSelector(state=>state.userProfile.originalProfile.drug_profile)
   let RXCUI_list_promises; 
   let RXCUI_list;
   let RXCUI;
   let listOfDrugInteractions
-  let drungNameIndex = 0
+  let drugNameIndex = 0
   let tempRXCUIList
   let interactionDrugOne
   let interactionDrugTwo
-  
 
-
-
- 
- 
   function showInteractions(){
     setinteractionDescriptions([])
     RXCUI_list_promises = drug_list.map( drug =>
    
-         axios
-        .get(
+      axios.get(
             `https://rxnav.nlm.nih.gov/REST/drugs.json?name=${drug}`
             
             
@@ -39,13 +31,13 @@ export const CheckInteractions =() => {
             tempRXCUIList = response.data.drugGroup.conceptGroup[response.data.drugGroup.conceptGroup.length-1].conceptProperties
             
             console.log(response)
-            while( (tempRXCUIList[drungNameIndex].name).includes('/') ){
+            while( (tempRXCUIList[drugNameIndex].name).includes('/') ){
 
-              drungNameIndex++
+              drugNameIndex++
 
             }
-            RXCUI = tempRXCUIList[drungNameIndex].rxcui
-            drungNameIndex = 0
+            RXCUI = tempRXCUIList[drugNameIndex].rxcui
+            drugNameIndex = 0
 
             //RXCUI = response.data.drugGroup.conceptGroup[response.data.drugGroup.conceptGroup.length-1].conceptProperties[0].rxcui
             //console.log(response.data.drugGroup.conceptGroup[response.data.drugGroup.conceptGroup.length-1].conceptProperties[0].rxcui)
@@ -63,12 +55,8 @@ export const CheckInteractions =() => {
       
 
       RXCUI_list= Promise.all(RXCUI_list_promises).then (responses =>(
-        
-     
-      //https://rxnav.nlm.nih.gov/REST/interaction/list.json?rxcuis=207106+152923+656659
-       
-      axios
-        .get(
+
+      axios.get(
             `https://rxnav.nlm.nih.gov/REST/interaction/list.json?rxcuis=${responses.join('+')}`
             
             
@@ -80,36 +68,35 @@ export const CheckInteractions =() => {
             // RXCUI_list.push(RXCUI)
             //console.log(response.data.fullInteractionTypeGroup)
             listOfDrugInteractions =response.data.fullInteractionTypeGroup[0].fullInteractionType
-            listOfDrugInteractions.map(interaction=>{  
-               //console.log(interaction.interactionPair[0].description)
-               console.log(interaction.comment,'The drug names')
-               console.log(interaction.comment.split('= ')[2].split(' ')[0])
-               console.log(interaction.comment.split('= ')[5].split(' ')[0])
-               interactionDrugOne = interaction.comment.split('= ')[2].split(' ')[0]
-               interactionDrugTwo =interaction.comment.split('= ')[5].split(' ')[0]
-             
+            console.log(listOfDrugInteractions)
+            listOfDrugInteractions.map(overallInteractionPair=>{  
+
+               interactionDrugOne = overallInteractionPair.comment.split('= ')[2].split(' ')[0]
+               interactionDrugTwo =overallInteractionPair.comment.split('= ')[5].split(' ')[0]
+               console.log(overallInteractionPair)
               //setinteractionDescriptions(interactionDescriptions=>[...interactionDescriptions,interaction.interactionPair[0].description])
-              interaction.interactionPair.map(eachInd =>{
+              overallInteractionPair.interactionPair.map(eachInteractionPair =>{
                 setinteractionDescriptions(interactionDescriptions => [
                     ...interactionDescriptions,
-                    {'drugNameOne':interactionDrugOne,
-                    'drugNameTwo':interactionDrugTwo,
-                    'interactionDescription':eachInd.description
+                    {
+                      'drugNameOne':interactionDrugOne,
+                      'drugNameTwo':interactionDrugTwo,
+                      'interactionDescription':eachInteractionPair.description
                     }
                   
                   ])
-                console.log(eachInd.description)
+                console.log(eachInteractionPair.description)
               })
             
             
             })
             console.log(interactionDescriptions,'????')
-
+            setinteractionDescriptions(interactionDescriptions => _.uniqBy(interactionDescriptions,'interactionDescription'))
             // {drug1:name,
             //   drug2:name,
             //   interactionDescriptions:interactionDescriptions
             // }
-            console.log(test1,'helloTest1')
+      
             return "Success"
             
           })
@@ -123,7 +110,7 @@ export const CheckInteractions =() => {
       
     )
     console.log(RXCUI_list,'hello')
-    
+    console.log(interactionDescriptions)
     
   
   }
@@ -131,9 +118,9 @@ export const CheckInteractions =() => {
 
   
   return (
-    <div className="interaction_wrapper">
+    <div className="interaction_component_wrapper">
 
-
+      
       <div className="med_header"> Medication List:
               {(drug_list.length != 0)?
                 (<ul className="medication_list">
@@ -155,9 +142,10 @@ export const CheckInteractions =() => {
         {interactionDescriptions.map((description,idx) =>
           <ul key ={idx} className='interaction_description_wrapper'>
               <div className="interaction_description_header" >
-                  <span id='interaction_drugNameOne'>{description.drugNameOne}</span><span id='preposition'>With</span><span id='interaction_diseaseNameTwo'>{description.drugNameTwo}</span>
+                  
+                  <span className='interaction_drugNameOne'>{description.drugNameOne} </span><span className='preposition'>with </span><span className='interaction_drugNameTwo'>{description.drugNameTwo}</span>
               </div>
-              <li className={`interaction_description`}>Description:{description.interactionDescription}</li>
+              <li className={`interaction_description`}>{description.interactionDescription}</li>
           </ul>
         )}
       <div className="error_message">{errorMessage}</div>

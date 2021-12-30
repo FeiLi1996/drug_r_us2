@@ -1,3 +1,57 @@
+.med_header{
+
+    margin-top: 10px;
+
+}
+.interaction_description_wrapper{
+   display: flex;
+   flex-direction: column;
+   margin-top: 20px;
+   font-family: Verdana, sans-serif;
+   
+}
+
+.interaction_description_header{
+    font-size: 25px;
+    margin-left: 15px;
+    text-transform: capitalize;
+   
+  
+    .interaction_drugNameTwo,.interaction_drugNameOne,.preposition{
+
+        
+        margin: 2px;
+        font-weight: bold;
+        word-break: break-word;
+       
+    }
+    .interaction_drugNameOne{
+        color: rgb(70, 70, 223);
+        
+    }
+    .interaction_drugNameTwo{
+        color: tomato;
+        
+    
+    }
+    .preposition{
+        font-size: 20px;
+        font-style: italic;
+        margin-bottom: 2px;
+  
+    }
+}
+
 .interaction_description{
     padding: 10px;
+    list-style-type: circle;
+    font-size: 20px;
+
 }
+
+.testing2{
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+

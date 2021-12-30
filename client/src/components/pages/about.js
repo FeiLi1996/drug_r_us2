@@ -18,7 +18,7 @@ export const About =() => {
 
         <p>
           <strong>
-            Disclaimer:The Content is shouldn't  be a substitute for professional medical advice, diagnosis, or treatment. 
+            Disclaimer:The content  shouldn't  be a substitute for professional medical advice, diagnosis, or treatment. 
             Always seek the advice of your doctors,pharmacists or nurses with any questions.
             These questions might be  about medications or medical conditions.
             </strong>

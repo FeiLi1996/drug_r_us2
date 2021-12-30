@@ -11,3 +11,5 @@ add a border to each product???
 -Added border. Added test case and 300 to about.
 -changed sell,store_product,about and product.scss
 -Changed quanttiy to stocks and added spaces to attributes in product
+-also changed check_interaction js and  check_interaction scss
+-changed user_profile page and user_profile scss
