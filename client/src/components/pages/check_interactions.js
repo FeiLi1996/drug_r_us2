@@ -9,9 +9,9 @@ export const CheckInteractions =() => {
   const [interactionDescriptions,setinteractionDescriptions] =useState([])
   const [errorMessage,setErrorMessage] = useState('')
   let drug_list=useSelector(state=>state.userProfile.originalProfile.drug_profile)
-  let RXCUI_list_promises; 
-  let RXCUI_list;
-  let RXCUI;
+  let RXCUI_list_promises
+  let RXCUI_list
+  let RXCUI
   let listOfDrugInteractions
   let drugNameIndex = 0
   let tempRXCUIList
@@ -30,7 +30,6 @@ export const CheckInteractions =() => {
         .then(response => {
             tempRXCUIList = response.data.drugGroup.conceptGroup[response.data.drugGroup.conceptGroup.length-1].conceptProperties
             
-            console.log(response)
             while( (tempRXCUIList[drugNameIndex].name).includes('/') ){
 
               drugNameIndex++
@@ -38,11 +37,6 @@ export const CheckInteractions =() => {
             }
             RXCUI = tempRXCUIList[drugNameIndex].rxcui
             drugNameIndex = 0
-
-            //RXCUI = response.data.drugGroup.conceptGroup[response.data.drugGroup.conceptGroup.length-1].conceptProperties[0].rxcui
-            //console.log(response.data.drugGroup.conceptGroup[response.data.drugGroup.conceptGroup.length-1].conceptProperties[0].rxcui)
-            // RXCUI_list_promises.push(RXCUI)
-            console.log(RXCUI)
             
             return  RXCUI
             
@@ -63,18 +57,12 @@ export const CheckInteractions =() => {
         )
         .then(response => {
 
-            console.log(response)
-            //console.log(response.data.drugGroup.conceptGroup[response.data.drugGroup.conceptGroup.length-1].conceptProperties[0].rxcui)
-            // RXCUI_list.push(RXCUI)
-            //console.log(response.data.fullInteractionTypeGroup)
             listOfDrugInteractions =response.data.fullInteractionTypeGroup[0].fullInteractionType
-            console.log(listOfDrugInteractions)
             listOfDrugInteractions.map(overallInteractionPair=>{  
 
                interactionDrugOne = overallInteractionPair.comment.split('= ')[2].split(' ')[0]
                interactionDrugTwo =overallInteractionPair.comment.split('= ')[5].split(' ')[0]
-               console.log(overallInteractionPair)
-              //setinteractionDescriptions(interactionDescriptions=>[...interactionDescriptions,interaction.interactionPair[0].description])
+
               overallInteractionPair.interactionPair.map(eachInteractionPair =>{
                 setinteractionDescriptions(interactionDescriptions => [
                     ...interactionDescriptions,
@@ -85,17 +73,13 @@ export const CheckInteractions =() => {
                     }
                   
                   ])
-                console.log(eachInteractionPair.description)
+
               })
             
             
             })
-            console.log(interactionDescriptions,'????')
+
             setinteractionDescriptions(interactionDescriptions => _.uniqBy(interactionDescriptions,'interactionDescription'))
-            // {drug1:name,
-            //   drug2:name,
-            //   interactionDescriptions:interactionDescriptions
-            // }
       
             return "Success"
             
@@ -109,10 +93,6 @@ export const CheckInteractions =() => {
       )
       
     )
-    console.log(RXCUI_list,'hello')
-    console.log(interactionDescriptions)
-    
-  
   }
   
 
@@ -136,9 +116,6 @@ export const CheckInteractions =() => {
             </div> 
 
       <button className= "interacton_button"onClick={()=>{showInteractions()}}>Check Interactions</button>
-      {/* {interactionDescriptions.map((description,idx) =>
-        <div className=" interaction_description" key={idx}>-{description} </div>
-        )} */}
         {interactionDescriptions.map((description,idx) =>
           <ul key ={idx} className='interaction_description_wrapper'>
               <div className="interaction_description_header" >

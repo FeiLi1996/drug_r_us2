@@ -9,7 +9,6 @@ const INITIAL_STATE ={
         // payment_card:"4123123412343124",
         // //drug_profile:['aspirin','ibuprofen','albuterol','warfarin','propranolol'],
         // drug_profile:['aspirin','ibuprofen','albuterol'],
-        
         // user_email:"testing1"
 
         profile_name:"",
@@ -27,8 +26,6 @@ const INITIAL_STATE ={
     //     //drug_profile:['aspirin','ibuprofen','albuterol','warfarin','propranolol'],
     //     drug_profile:['aspirin','ibuprofen','albuterol'],
     //     user_email:"testing1"
-
-
     // }
     copyProfile:{
         profile_name:"",
@@ -87,8 +84,7 @@ const userProfile = (state=INITIAL_STATE,action)=>{
     
                 }
             }
-            //_.union([2], [1, 2]);
-// => [2, 1]
+
             return {
                 
                 ...state,

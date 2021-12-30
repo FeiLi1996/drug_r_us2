@@ -12,15 +12,6 @@ import MessageModal from "../modals/message_modal";
 
 
 
-// const INITIAL_STATE ={
-//   profile_name:"",
-//   date_of_birth:"",
-//   address:"",
-//   payment_card:"",
-//   drug_profile:[],
-//   user_email:"testing"
-
-// }
 
  const Userprofile =() => {
 

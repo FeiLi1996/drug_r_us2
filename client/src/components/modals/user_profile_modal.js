@@ -1,11 +1,11 @@
 import React,{useState} from 'react';
 import { useSelector,useDispatch } from 'react-redux';
-
+import axios from 'axios';
 
 import {handleUserDrugList,setToPreviousUserProfile ,ConfirmNewUserProfile, switchProfileFilledStatus} from '../../actions';
 import SearchBar from '../search/search_feature';
 import UserProfileForm from '../forms/user_profile_form';
-import axios from 'axios';
+
 
 
 
@@ -19,7 +19,7 @@ const  UserProfileModal =(prop)=>{
     
     let query = new URLSearchParams(search).get('s');
     const [searchQuery, setSearchQuery] = useState(query || '');
-    console.log(serverDrugList,'hhelo')
+
 
     function handleCloseModal () {
 
@@ -39,8 +39,7 @@ const  UserProfileModal =(prop)=>{
        else{
 
 
-            axios
-            .post(
+            axios.post(
                 "http://127.0.0.1:5000/edit_user_profile",
                 { withCredentials: true,
 

@@ -60,10 +60,7 @@ const onSubmitRegister=(formValues)=>{
         
     })
    
-       
-          
-
-        
+     
     
 }
 

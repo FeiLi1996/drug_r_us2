@@ -1,5 +1,7 @@
 import React from "react";
+
 import Products from "../products";
+
  const StoreProducts =(props) => {
   return (
     <div>

@@ -29,17 +29,14 @@ const renderInput = ({label,input,meta})=>{
 
 const onSubmitLogin=(formValues)=>{
 
-    console.log(formValues)
-    console.log(formValues.email)
+
 
     axios.defaults.withCredentials = true
    
     return axios.post(
         "http://127.0.0.1:5000/login",
         { 
-        
-        
-        
+
             "email":formValues.email,
             "password":formValues.password
         }
@@ -62,13 +59,7 @@ const onSubmitLogin=(formValues)=>{
 
 
     })
- 
-  
 
-
- 
-    
-    
     return
     
 }

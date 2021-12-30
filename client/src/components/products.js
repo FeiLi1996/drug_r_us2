@@ -13,18 +13,13 @@ import { increaseQuantity,decreaseQuantity,removeFromCart,removeFromStore } from
     const dispatch = useDispatch()
    
   
-    function testAddToCart (Product) {
-        console.log(dispatch(addToCart(Product)))
+    function handleAddToCart (Product) {
+        dispatch(addToCart(Product))
 
-        console.log(Product)
-        console.log('hello')
     }
     function handleRemoveProductFromStore (id) {
 
-
-
-        axios
-        .post(
+        axios.post(
             "http://127.0.0.1:5000/delete_product",
             { withCredentials: true, 
             
@@ -41,8 +36,6 @@ import { increaseQuantity,decreaseQuantity,removeFromCart,removeFromStore } from
             console.log(error,'fail delete')
             
         })
-
-
         dispatch(removeFromStore(id))
         dispatch(removeFromCart(id))
 
@@ -65,7 +58,7 @@ import { increaseQuantity,decreaseQuantity,removeFromCart,removeFromStore } from
         else if(props.productType === 'storeProducts'){
             return(
                 <div className="storeProductButtons_wrapper">
-                    <button  className="storeProductButton" onClick={()=>testAddToCart(product)}>Add To Cart</button>
+                    <button  className="storeProductButton" onClick={()=>handleAddToCart(product)}>Add To Cart</button>
                     
                 </div>
             )

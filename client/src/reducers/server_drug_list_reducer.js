@@ -1,8 +1,8 @@
 
 const INITIAL_STATE ={
 
-    general_drug_list:['aspirin','warfarin','propranolol','ibuprofen'],
-    //general_drug_list:[],
+    //general_drug_list:['aspirin','warfarin','propranolol','ibuprofen'],
+    general_drug_list:[],
  
 
 }

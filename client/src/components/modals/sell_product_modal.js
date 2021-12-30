@@ -7,9 +7,6 @@ import { addToStore,setDatabaseProductToStore } from '../../actions';
 import SellingForm from '../forms/selling_form';
 
 
-
-
-
 const  SellProductModal =(prop)=>{
     const [errorMessage,setErrorMessage] = useState('')
     
@@ -33,8 +30,7 @@ const  SellProductModal =(prop)=>{
       }
       else{
 
-        axios
-        .post(
+        axios.post(
             "http://127.0.0.1:5000/send_products",
             { withCredentials: true, 
             
@@ -77,7 +73,7 @@ const  SellProductModal =(prop)=>{
           email:user_email,
          
 
-      }))
+        }))
       }
 
 

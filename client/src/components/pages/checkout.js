@@ -1,9 +1,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {useHistory} from 'react-router-dom'
+import axios from "axios";
+
 import Products from "../products";
 import { handleUserDrugList,removeAllFromCart,setDatabaseProductToStore } from "../../actions";
-import axios from "axios";
+
 
 
 
@@ -20,7 +22,7 @@ export const Checkout =() => {
     let drugNames =[];
     let cartProductDrugInfo =[];
     drugNames = checkoutProducts.map(product=>
-          product.drug_name
+      product.drug_name
 
     )
     checkoutProducts.map(product=>
@@ -35,8 +37,7 @@ export const Checkout =() => {
 
     )
     
-    axios
-    .post(
+    axios.post(
         "http://127.0.0.1:5000/update_product_post_checkout",
         { withCredentials: true,
           'cartProductDrugInfo':cartProductDrugInfo
@@ -78,8 +79,6 @@ export const Checkout =() => {
   return (
     <div className="checkout_wrapper">
 
-
-      
       <div className="profile">
           <div>Profile Name:{userProfile.profile_name}</div>
           <div>Address:{userProfile.address}   </div>  

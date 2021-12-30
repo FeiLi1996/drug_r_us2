@@ -6,11 +6,11 @@ export const About =() => {
       
       <div className="about_wrapper">
         <p>
-          Welcome to Drug R Us2. This is a for fun bootleg site where you can buy and sell medications.
+          Welcome to Drug R Us2. This is a for fun website where you can buy and sell medications.
           You can also check if there are any drug to drug interactions in the interaction section.
         </p>
         <div>
-            Example test interaction: Add warfarin and naproxen to your profile.
+            Example test interaction: Add Warfarin and Naproxen to your profile.
         </div>
         <p>
           Currently, we can only add the top <strong>300  generic named  drugs</strong> to your user profile.

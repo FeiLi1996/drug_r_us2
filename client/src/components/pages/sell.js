@@ -1,11 +1,11 @@
 import React,{ useState } from "react";
 import { useSelector,useDispatch } from 'react-redux';
-
+import {filter} from 'lodash';
 
 import SellProductModal from "../modals/sell_product_modal";
 import MessageModal from "../modals/message_modal";
 import Products from "../products";
-import {filter} from 'lodash';
+
 
 
 
@@ -45,13 +45,9 @@ export const Sell =() => {
             
             <hr className="horizontal_line"/> 
             <div>
-             
-              
+          
               <button className="sell_button" onClick={()=>setToggleModal(true)}>Sell Stuff</button> 
               
-              {/* {values ? JSON.stringify(values, 0, 2) : ""} */}
-              
-
             </div>
      
           </div>

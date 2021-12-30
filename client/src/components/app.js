@@ -2,7 +2,6 @@ import React, { useState,useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom'
 import axios from 'axios';
-
 import Cookies from 'js-cookie'
 
 
@@ -60,7 +59,6 @@ import {
   
             )
             .then(response => {
-              console.log(response,'retrieved user profile')
               Object.entries(response.data).map(profileAttribute => {
                 
                 dispatch(setUserProfile(profileAttribute))
@@ -77,20 +75,12 @@ import {
 
 
 
-
-
         else{
           console.log('not logged in')
         }
-      
-
-
-
-      
-                    
+            
       axios.get(
         "http://127.0.0.1:5000/me",
-        //"http://localhost:5000/me",
         {withCredentials: true}
         
       )
@@ -114,7 +104,6 @@ import {
           
       )
       .then(response => {
-          console.log(response,'got drug list')
           dispatch(saveServerDrugList(response.data.drug_list))
       })
       .catch(error => {
@@ -130,7 +119,6 @@ import {
         
       )
       .then(response => {
-          console.log(response.data,'got product list')
           dispatch(setDatabaseProductToStore(response.data))
       })
       .catch(error => {
@@ -138,12 +126,6 @@ import {
           
       })
 
-      
- 
-
-
-
-    
     }, []);
 
 
@@ -164,8 +146,6 @@ import {
       return `../../static/assets/images/${Counter}.jpg`
     }
 
-
-    
     return (
       <div className='app'>
 

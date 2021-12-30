@@ -1,21 +1,9 @@
 import React from "react";
 import { useSelector } from 'react-redux';
 
-
-
-
-
-
-
 import {FilterProducts} from '../filter/filter'
 import ShoppingCart from "../cart/shopping_cart";
 import StoreProducts from "../store/store_product";
-
-
-
-
-
-
 
 
 export const Buy =() => {

@@ -5,8 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingBasket } from '@fortawesome/free-solid-svg-icons'
 
 
-
-
 import MessageModal from '../modals/message_modal';
 import { setTotalPrice } from '../../actions';
 import Products from '../products'
@@ -29,7 +27,6 @@ import Products from '../products'
         }
         else{
 
-            console.log(isLogged,profileFilled)
             dispatch(setTotalPrice())
             history.push("/Checkout");
         }

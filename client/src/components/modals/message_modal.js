@@ -3,20 +3,12 @@ import React from 'react';
 import { useHistory } from "react-router-dom";
 
 
-
-
-
-
-
 const  MessageModal =(prop)=>{
    
     let history = useHistory();
     function handleRedirect(path){
         history.push(path);
     }
-
-  
-
 
     return(
         <div className={`modalBackground ${prop.cancelFloatCss}`}>
