@@ -19,10 +19,11 @@ Or follow steps below for local setup.
 2. you can start an virtual environment to not pollute your local dependencies.(optional)
 3. pip install the requirements.txt "pip install -r requirements.txt"
 4. python app.py[window] or python3 app.py[mac]
-5. CD into client
-6. Install the packages 'npm install '
-7. 'npm start' 
-8. Then go to http://localhost:3000/
+5. start another terminal
+6. CD into client
+7. Install the packages 'npm install '
+8. 'npm start' 
+9. Then go to http://localhost:3000/
 
 
 > Remeber to take your medications ***responsibly***
