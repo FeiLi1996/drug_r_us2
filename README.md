@@ -6,9 +6,7 @@ People can also check if there are any drug to drug interactions among the medic
 
 
 
-# Drugs R Us2
-
-Demonstration Video below: <br>
+# Demonstration Video below:
 https://youtu.be/VRPQPDR6xOA
 
 # Deployed Link
