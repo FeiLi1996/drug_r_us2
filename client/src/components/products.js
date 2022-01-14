@@ -48,7 +48,7 @@ import { increaseQuantity,decreaseQuantity,removeFromCart,removeFromStore } from
     function dynamicButtons (product){
         if (props.productType === 'cartProduct'){
             return(
-                <div className="cartProductButtons_wrapper">
+                <div className="cartProductButtons_wrapper productButton">
                     <button className="cartProductButton" onClick={()=>dispatch(increaseQuantity(product.id))}>+</button>
                     <button className="cartProductButton" onClick={()=>dispatch(decreaseQuantity(product.id))}>-</button>
                     <button className="cartProductButton" onClick={()=>dispatch(removeFromCart(product.id))}>Delete</button>
@@ -57,7 +57,7 @@ import { increaseQuantity,decreaseQuantity,removeFromCart,removeFromStore } from
         }
         else if(props.productType === 'storeProducts'){
             return(
-                <div className="storeProductButtons_wrapper">
+                <div className="storeProductButtons_wrapper productButton">
                     <button  className="storeProductButton" onClick={()=>handleAddToCart(product)}>Add To Cart</button>
                     
                 </div>
@@ -65,7 +65,7 @@ import { increaseQuantity,decreaseQuantity,removeFromCart,removeFromStore } from
         }
         else if(props.productType === 'sellerProducts'){
             return(
-                <div className="sellerProductButtons_wrapper">
+                <div className="sellerProductButtons_wrapper productButton">
                     <button className="sellerProductButton" onClick={()=>handleRemoveProductFromStore(product.id)}>Delete</button>
                     
                 </div>
@@ -85,12 +85,12 @@ import { increaseQuantity,decreaseQuantity,removeFromCart,removeFromStore } from
                     <img src ={DrugBottle}/> 
                 </div>
                
+                <div className='product_descriptions'>
+                    <div>Drug name:<strong> {product.drug_name}</strong></div>
+                    <div>Drug price: ${product.price}</div>
                 
-                <div>Drug name:<strong> {product.drug_name}</strong></div>
-                <div>Drug price: ${product.price}</div>
-              
-                <div>Stocks {props.remaining}: {product.quantity}</div>
-                
+                    <div>Stocks {props.remaining}: {product.quantity}</div>
+                </div>
                 {dynamicButtons(product)}
                 
            </div>

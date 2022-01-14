@@ -1,6 +1,11 @@
    
 .product_wrapper{
     border-style:groove;
+    text-align: center;
+    .product_descriptions{
+        display: inline-block; 
+	    text-align: left; 
+    }
 
 }
 
