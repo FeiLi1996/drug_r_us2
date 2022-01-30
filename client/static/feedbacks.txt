@@ -13,3 +13,32 @@ add a border to each product???
 -Changed quanttiy to stocks and added spaces to attributes in product
 -also changed check_interaction js and  check_interaction scss
 -changed user_profile page and user_profile scss
+
+
+
+===Feedback from an awesome Microsoft Engineer.
+https://github.com/FeiLi1996/drug_r_us2
+- really appreciate the video
+- I’m really happy that you were able to successfully deploy the project. It is so important. Now you have an understanding of the minimum effort it takes to bring a project online. It’s a big milestone.
+- i’m impressed that you learned how to use redux – it’s often very confusing to most people. As a tip, make sure you understand it’s philosophy.
+
+Codebase:
+- package.json file looks sloppy – from now on, I recommend you to make sure that you understand how every single package in the package.json works, before you use it. This is critical because it will help you grow your understanding of the JS ecosystem.
+	- e.g. can you explain what babel does?
+	- can you explain what webpack does?
+- I know it’s a learning project, but please avoid commit messages like “hi”. At least, you can use “WIP” (work-in-progress), or “initial commit” instead.
+- A lot of code formatting issues. Make sure your spacing is consistent. Please read up on some common style guides. e.g. Airbnb or google style guide for React code.
+- I like how there is some folder organisation. Keep looking for way to better organise the code. One thing some developers like to do, is to use the ducks pattern: https://www.freecodecamp.org/news/scaling-your-redux-app-with-ducks-6115955638be/
+	- it has its own tradeoffs too
+- please consider 2-space indentation
+
+
+Skills to look into:
+- CSS; look into flexbox (fully understand how it works)
+- UX/UI design. Research articles/newsletters to review. Some quick tips would really help you improve the design.
+- TypeScript
+- Consider cross-browser compatibility
+- Understand how semantic versioning works.
+
+
+Write down a list of skills that you learned while completing this project. Then think about how to “get to the next level”. How can you write cleaner and more efficient code? How can you design more usable and accessible interfaces? You’re off to a great start. Now, get to the “next level”.
